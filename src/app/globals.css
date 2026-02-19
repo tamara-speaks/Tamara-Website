@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold-gradient: linear-gradient(135deg, #D4AF37, #FFD700, #B8860B);
+  --matte-black: #0A0A0A;
+  --cream-white: #FAFAF8;
+  --forest-green: #2D5A27;
+  --warm-tan: #C4A77D;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: var(--cream-white);
+  color: var(--matte-black);
+  overflow-x: hidden;
+}
+
+/* Gold gradient text utility */
+.text-gold-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold gradient border utility */
+.border-gold-gradient {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--cream-white), var(--cream-white)) padding-box,
+              var(--gold-gradient) border-box;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-light {
+  background: rgba(250, 250, 248, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-gradient);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8860B;
+}
+
+/* Runway walk animation stagger */
+.runway-stagger > * {
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.runway-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.runway-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.runway-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.runway-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+.runway-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Card hover lift effect */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Image overlay for cards */
+.image-overlay {
+  position: relative;
+}
+
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.8) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Marquee pause on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-20 md:py-28 lg:py-32;
+}
+
+.container-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Button base styles */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-8 py-4
+         bg-gold-gradient text-matte-black font-semibold
+         rounded-full transition-all duration-300
+         hover:shadow-lg hover:shadow-gold/30 hover:scale-105
+         focus-visible:outline-none focus-visible:ring-2
+         focus-visible:ring-gold focus-visible:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-8 py-4
+         border-2 border-gold text-gold font-semibold
+         rounded-full transition-all duration-300
+         hover:bg-gold hover:text-matte-black
+         focus-visible:outline-none focus-visible:ring-2
+         focus-visible:ring-gold focus-visible:ring-offset-2;
+}
+
+.btn-white {
+  @apply inline-flex items-center justify-center px-8 py-4
+         bg-cream-white text-matte-black font-semibold
+         rounded-full transition-all duration-300
+         hover:bg-gold hover:shadow-lg hover:shadow-gold/30
+         focus-visible:outline-none focus-visible:ring-2
+         focus-visible:ring-cream-white focus-visible:ring-offset-2;
+}
