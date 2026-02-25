@@ -4,7 +4,8 @@
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
       "Bash(curl:*)",
-      "Bash(del \"C:\\\\Users\\\\theod\\\\Documents\\\\GitHub\\\\TamaraWebsite\\\\src\\\\components\\\\sections\\\\MissionImpact.tsx\")"
+      "Bash(del \"C:\\\\Users\\\\theod\\\\Documents\\\\GitHub\\\\TamaraWebsite\\\\src\\\\components\\\\sections\\\\MissionImpact.tsx\")",
+      "Bash(npm run build:*)"
     ]
   }
 }

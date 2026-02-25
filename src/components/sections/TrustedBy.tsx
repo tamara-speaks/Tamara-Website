@@ -28,8 +28,8 @@ export default function TrustedBy() {
           whileInView="visible"
           viewport={scrollTrigger}
         >
-          <p className="text-matte-black/60 uppercase tracking-widest text-sm font-medium">
-            Trusted By Leading Organizations
+          <p className="text-matte-black/60 uppercase tracking-widest text-sm font-medium text-center max-w-3xl mx-auto leading-relaxed">
+            Trusted By Schools and Organizations Committed to Transformational Impact
           </p>
         </motion.div>
 

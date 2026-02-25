@@ -38,7 +38,7 @@ export default function Header() {
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? 'glass py-3' : 'bg-transparent py-5'
+          isScrolled ? 'glass py-2' : 'bg-transparent py-5'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -51,9 +51,11 @@ export default function Header() {
               <Image
                 src="/logo/Tamara FG_1X1_Logo_CROWN Only.png"
                 alt="Tamara Figueroa-Guzman"
-                width={50}
-                height={50}
-                className="w-10 h-10 md:w-12 md:h-12"
+                width={80}
+                height={80}
+                className={`transition-all duration-300 ${
+                  isScrolled ? 'w-10 h-10 md:w-12 md:h-12' : 'w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20'
+                }`}
               />
             </Link>
 

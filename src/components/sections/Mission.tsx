@@ -23,7 +23,7 @@ export default function Mission() {
             viewport={{ once: true }}
           >
             <div className="h-px w-12 bg-gold" />
-            <p className="text-gold font-medium tracking-widest uppercase text-sm">
+            <p className="text-gold font-medium tracking-widest uppercase text-lg md:text-xl">
               Tamara&apos;s Mission
             </p>
             <div className="h-px w-12 bg-gold" />
@@ -37,11 +37,11 @@ export default function Mission() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            To Empower{' '}
-            <span className="text-gold-gradient bg-clip-text text-transparent bg-gold-gradient">
-              100K Students, Teachers, and Emerging Leaders
+            <span className="text-matte-black/40">To Empower</span>{' '}
+            <span className="bg-gradient-to-r from-[#FFD700] via-[#D4AF37] to-[#B8860B] bg-clip-text text-transparent">
+              100K+ Students, Teachers, and Emerging Leaders
             </span>{' '}
-            Each Year
+            <span className="text-matte-black/40">Each Year</span>
           </motion.h2>
 
           {/* Divider */}
@@ -54,17 +54,31 @@ export default function Mission() {
           />
 
           {/* Description */}
-          <motion.p
-            className="text-matte-black/70 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto"
+          <motion.div
+            className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Tamara wants to impact over 100,000 students, educators, and emerging leaders each year by
-            helping them build the confidence, self-worth, and purpose needed to push through challenges,
-            elevate performance, and create meaningful, lasting success.
-          </motion.p>
+            <p className="text-matte-black/70 text-lg md:text-xl leading-relaxed mb-8">
+              Through experiences that help them:
+            </p>
+            <ul className="space-y-4 text-left max-w-md mx-auto">
+              <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                Recognize Their Worth
+              </li>
+              <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                Build Unshakable Confidence
+              </li>
+              <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
+                <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                Create Their Own Runway for Success
+              </li>
+            </ul>
+          </motion.div>
 
           {/* Stats */}
           <motion.div

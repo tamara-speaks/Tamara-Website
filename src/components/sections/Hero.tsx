@@ -1,37 +1,39 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
-import VideoModal from '@/components/ui/VideoModal'
 import { staggerContainer, heroTextSlide } from '@/lib/animations'
 
 export default function Hero() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const scrollToReel = () => {
+    const reelSection = document.getElementById('speaker-reel')
+    if (reelSection) {
+      reelSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
-    <>
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-matte-black">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-matte-black">
         {/* Background - Dark base */}
         <div className="absolute inset-0 z-0 bg-matte-black" />
 
-        {/* Tamara Image - Positioned on right */}
-        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[60%] z-0">
+        {/* Tamara Image - Positioned on left */}
+        <div className="absolute left-0 top-0 bottom-0 w-full lg:w-[75%] z-0">
           <Image
             src="/landing/hero/Edit-8288.jpg"
             alt="Tamara Figueroa-Guzman"
             fill
             priority
-            className="object-cover object-[center_top]"
+            className="object-cover object-[30%_top] brightness-110"
           />
-          {/* Gradient fade to blend with left content area */}
-          <div className="absolute inset-0 bg-gradient-to-r from-matte-black via-matte-black/50 to-transparent" />
+          {/* Gradient fade to blend with right content area */}
+          <div className="absolute inset-0 bg-gradient-to-l from-matte-black via-matte-black/50 via-40% to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-matte-black/60 via-transparent to-matte-black/40" />
         </div>
 
-        {/* Content - Left side */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
+        {/* Content - Right side */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 flex justify-end">
           <motion.div
             className="max-w-xl lg:max-w-2xl"
             variants={staggerContainer}
@@ -40,7 +42,7 @@ export default function Hero() {
           >
             {/* Signature Tagline */}
             <motion.p
-              className="font-playfair text-2xl sm:text-3xl md:text-4xl text-gold italic mb-4"
+              className="font-playfair text-4xl sm:text-5xl md:text-6xl text-gold font-bold mb-4"
               variants={heroTextSlide}
             >
               &ldquo;Create Your Own Runway&rdquo;
@@ -48,28 +50,15 @@ export default function Hero() {
 
             {/* Main Headline */}
             <motion.h1
-              className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-cream-white leading-[1.1] mb-6"
+              className="font-sans text-lg sm:text-xl md:text-2xl text-cream-white/70 leading-[1.4] mb-8 tracking-wider"
               variants={heroTextSlide}
             >
               AIM FOR THE TOP
-              <span className="block text-gold-gradient bg-clip-text text-transparent bg-gold-gradient">
+              <span className="block text-cream-white/50">
                 BECAUSE THE BOTTOM
               </span>
               IS ALREADY CROWDED
             </motion.h1>
-
-            {/* Meet Tamara intro */}
-            <motion.div
-              className="mb-8"
-              variants={heroTextSlide}
-            >
-              <p className="text-gold font-medium tracking-widest uppercase text-xs mb-2">
-                Meet Tamara Figueroa-Guzman
-              </p>
-              <p className="text-cream-white/70 text-sm sm:text-base max-w-lg">
-                Motivational Speaker & Purpose and Success Specialist
-              </p>
-            </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
@@ -78,7 +67,7 @@ export default function Hero() {
             >
               <Button
                 variant="primary"
-                onClick={() => setIsVideoOpen(true)}
+                onClick={scrollToReel}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +89,7 @@ export default function Hero() {
                     d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                Watch Now!
+                Experience the Impact
               </Button>
               <Button variant="secondary" href="/book">
                 Book Tamara
@@ -125,11 +114,5 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </section>
-
-      <VideoModal
-        isOpen={isVideoOpen}
-        onClose={() => setIsVideoOpen(false)}
-      />
-    </>
   )
 }

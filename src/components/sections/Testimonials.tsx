@@ -6,27 +6,21 @@ import { fadeInUp, scrollTrigger, testimonialSlide } from '@/lib/animations'
 
 const testimonials = [
   {
-    quote: "Tamara's keynote was absolutely transformative. Our students were captivated from the first moment, and weeks later, they're still talking about her message of creating their own runway.",
-    name: 'Dr. Maria Santos',
-    title: 'Principal, Lincoln High School',
+    quote: "Tamara didn't just motivate our students — she shifted their mindset. Weeks later, we're still seeing increased confidence, stronger leadership, and a renewed sense of purpose across our campus.",
+    name: 'Principal',
+    title: 'Miami-Dade Public Schools',
     image: null,
   },
   {
-    quote: "I've booked hundreds of speakers over my career, and Tamara stands out. She doesn't just speak—she connects, inspires, and leaves a lasting impact that you can see in the students' eyes.",
-    name: 'Michael Thompson',
-    title: 'Director of Student Affairs, State University',
+    quote: "Listening to Tamara's motivational speeches has been a life-changing experience for me. Her inspiring words and powerful messages have motivated me to pursue my dreams and strive for excellence in all areas of my life. I am grateful for her guidance and wisdom, and I would highly recommend her speeches to anyone seeking motivation and inspiration to achieve their goal.",
+    name: 'J Moore',
+    title: 'Manager - LRJ Developers LLC - New Jersey',
     image: null,
   },
   {
-    quote: "After Tamara's workshop, I finally understood that my past doesn't define my future. She gave me the courage to pursue my dreams. I'm now in my first year of medical school.",
-    name: 'Jasmine Williams',
-    title: 'Former Student, Now Medical Student',
-    image: null,
-  },
-  {
-    quote: "Tamara brings an authenticity that's rare in motivational speaking. Her journey from the runway to the world stage is not just inspiring—it's proof that anything is possible.",
-    name: 'Robert Chen',
-    title: 'Corporate Training Director, Fortune 500',
+    quote: "Through the years of knowing Ms Tamara Figueroa-Guzman, she has always demonstrated a certain strength and resilience that is unmatched by so many. Her intuition and empathy gives her the drive and tenacity to cradle the compassion to speak from the heart to impact and transform so many lives. It is without a doubt that Tamara is on her way to becoming one of the best motivational speakers of our time.",
+    name: 'Jillian Ul Salaam',
+    title: 'Educator & Consultant - Florida',
     image: null,
   },
 ]
@@ -54,10 +48,7 @@ export default function Testimonials() {
             Testimonials
           </p>
           <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-cream-white mb-4">
-            Words That{' '}
-            <span className="text-gold-gradient bg-clip-text text-transparent bg-gold-gradient">
-              Speak Volumes
-            </span>
+            What People Are Saying
           </h2>
         </motion.div>
 

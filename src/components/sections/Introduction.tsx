@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
+import Button from '@/components/ui/Button'
 
 export default function Introduction() {
   return (
@@ -16,14 +17,14 @@ export default function Introduction() {
         >
           {/* Section Label */}
           <motion.div
-            className="inline-flex items-center gap-4 mb-8"
+            className="inline-flex items-center gap-4 mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
             <div className="h-px w-12 bg-gold" />
-            <p className="text-gold font-medium tracking-widest uppercase text-sm">
+            <p className="text-gold font-medium tracking-widest uppercase text-lg md:text-xl">
               Meet Tamara Figueroa-Guzman
             </p>
             <div className="h-px w-12 bg-gold" />
@@ -31,17 +32,25 @@ export default function Introduction() {
 
           {/* Title */}
           <motion.h2
-            className="font-playfair text-3xl sm:text-4xl md:text-5xl text-matte-black mb-8"
+            className="font-playfair text-2xl sm:text-3xl md:text-4xl text-gold mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Motivational Speaker &{' '}
-            <span className="text-gold-gradient bg-clip-text text-transparent bg-gold-gradient">
-              Purpose and Success Specialist
-            </span>
+            The Purpose & Success Specialist
           </motion.h2>
+
+          {/* Subtitle */}
+          <motion.p
+            className="text-matte-black/60 text-xs md:text-sm mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true }}
+          >
+            Motivational Speaker | Educator | Creator of the Create Your Own Runway™ Framework
+          </motion.p>
 
           {/* Bio Text */}
           <motion.div
@@ -52,13 +61,25 @@ export default function Introduction() {
             viewport={{ once: true }}
           >
             <p>
-              After teaching post-secondary education for nearly a decade, Tamara Figueroa-Guzman,
-              former New York City model and Beauty Educator turned International Speaker, now
-              partners with schools and organizations to strengthen retention, increase graduation,
-              and reduce burnout by sharing practical powerful tools to build self-worth, confidence,
-              and perseverance across students and staff alike using her{' '}
-              <strong className="text-matte-black">&apos;Create Your Own Runway&apos;</strong> framework.
+              From surviving Brooklyn&apos;s toughest environments to stepping onto worldwide stages,
+              Tamara Figueroa-Guzman now partners with schools and organizations to create their own
+              runways for success. Through her powerful speaking experiences, she equips students and
+              educators with the confidence, self-worth, and purpose-driven mindset proven to strengthen
+              retention, elevate performance, and reduce burnout.
             </p>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <Button variant="secondary" href="/about">
+              Learn More About Tamara
+            </Button>
           </motion.div>
         </motion.div>
       </div>

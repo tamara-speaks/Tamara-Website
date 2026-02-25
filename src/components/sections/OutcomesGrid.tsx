@@ -8,7 +8,7 @@ import { staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
 const outcomes = [
   {
     level: 'Elementary Schools',
-    number: '01',
+    number: '1',
     image: '/landing/who-we-serve/1-Elementary-Smiling Students.jpg',
     tagline: 'Where dreams begin',
     outcomes: [
@@ -19,11 +19,12 @@ const outcomes = [
       'Anti-bullying',
     ],
     accentColor: '#D4AF37',
+    imagePosition: 'center',
   },
   {
     level: 'Middle Schools',
-    number: '02',
-    image: '/landing/who-we-serve/2-Middle-Graduation Cheer.jpg',
+    number: '2',
+    image: '/landing/who-we-serve/2-Middle School_Cheer-VERTICAL.jpg',
     tagline: 'Finding your voice',
     outcomes: [
       'Identity Development',
@@ -33,10 +34,11 @@ const outcomes = [
       'Goal Awareness',
     ],
     accentColor: '#2D5A27',
+    imagePosition: 'center',
   },
   {
     level: 'High Schools',
-    number: '03',
+    number: '3',
     image: '/landing/who-we-serve/3-High School.jpg',
     tagline: 'Shaping your future',
     outcomes: [
@@ -47,10 +49,11 @@ const outcomes = [
       'Future Readiness',
     ],
     accentColor: '#C4A77D',
+    imagePosition: 'left',
   },
   {
     level: 'College / Universities',
-    number: '04',
+    number: '4',
     image: '/landing/who-we-serve/4-College+University.jpg',
     tagline: 'Owning your runway',
     outcomes: [
@@ -61,6 +64,7 @@ const outcomes = [
       'Burnout Prevention',
     ],
     accentColor: '#B8860B',
+    imagePosition: 'right',
   },
 ]
 
@@ -94,21 +98,15 @@ export default function OutcomesGrid() {
             viewport={{ once: true }}
           >
             <div className="h-px w-12 bg-gold" />
-            <p className="text-gold font-medium tracking-widest uppercase text-sm">
+            <p className="text-gold font-medium tracking-widest uppercase text-lg md:text-xl">
               Who We Serve
             </p>
             <div className="h-px w-12 bg-gold" />
           </motion.div>
 
-          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-cream-white mb-4">
+          <h2 className="font-playfair text-xl sm:text-2xl md:text-3xl text-cream-white/50 mb-4">
             Tamara Speaks To
           </h2>
-          <p className="text-gold text-xl md:text-2xl font-playfair italic mb-6">
-            Outcomes You Can Expect
-          </p>
-          <p className="text-cream-white/60 text-lg max-w-2xl mx-auto">
-            Tailored programs that meet students exactly where they are and inspire them to reach where they&apos;re meant to be.
-          </p>
         </motion.div>
 
         {/* Journey Line - Desktop */}
@@ -130,7 +128,7 @@ export default function OutcomesGrid() {
           whileInView="visible"
           viewport={scrollTrigger}
         >
-          {outcomes.map((item, index) => (
+          {outcomes.map((item: { level: string; number: string; image: string; tagline: string; outcomes: string[]; accentColor: string; imagePosition: string }, index: number) => (
             <motion.div
               key={item.level}
               className="relative"
@@ -175,7 +173,10 @@ export default function OutcomesGrid() {
                     src={item.image}
                     alt={item.level}
                     fill
-                    className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-50"
+                    className={`object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-50 ${
+                      item.imagePosition === 'right' ? 'object-right' :
+                      item.imagePosition === 'left' ? 'object-left' : 'object-center'
+                    }`}
                   />
 
                   {/* Gradient Overlay */}
@@ -198,7 +199,7 @@ export default function OutcomesGrid() {
                       {item.level}
                     </h3>
                     <p className="text-cream-white/70 text-xs mb-4 font-medium uppercase tracking-wider">
-                      Outcomes You Can Expect
+                      Key Outcomes
                     </p>
 
                     <ul className="space-y-2 w-full">
@@ -224,6 +225,17 @@ export default function OutcomesGrid() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Tagline after grid */}
+        <motion.p
+          className="text-cream-white/70 text-lg md:text-xl text-center max-w-3xl mx-auto mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          Tailored programs that meet students where they are and empower them to become who they&apos;re meant to be.
+        </motion.p>
       </div>
     </section>
   )

@@ -68,13 +68,10 @@ export default function Footer() {
             <Image
               src="/logo/Tamara FG_Logo NEW_For BLACK Background.png"
               alt="Tamara Figueroa-Guzman"
-              width={200}
-              height={80}
-              className="mb-4"
+              width={250}
+              height={100}
+              className="mb-4 w-[200px] md:w-[250px]"
             />
-            <p className="text-warm-tan text-center md:text-left">
-              Motivational Speaker & Purpose/Success Specialist
-            </p>
           </div>
 
           {/* Quick Links */}
@@ -117,7 +114,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-gold/20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-cream-white/60 text-sm text-center md:text-left">
-              &copy; {new Date().getFullYear()} Tamara Figueroa-Guzman. All rights reserved.
+              &copy; 2023 Tamara Figueroa-Guzman. All rights reserved.
             </p>
             <p className="text-cream-white/60 text-sm">
               Empowering students and leaders worldwide
