@@ -34,17 +34,15 @@ export default function FaithService() {
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0, 1]))
   const thumbnailRef = useRef<HTMLDivElement>(null)
 
-  // Calculate which images should be loaded (current, prev, next)
   const imagesToLoad = useMemo(() => {
     const indices = new Set<number>()
     indices.add(currentSlide)
     indices.add((currentSlide + 1) % slides.length)
     indices.add((currentSlide - 1 + slides.length) % slides.length)
-    indices.add((currentSlide + 2) % slides.length) // Preload one more ahead
+    indices.add((currentSlide + 2) % slides.length)
     return indices
   }, [currentSlide])
 
-  // Track loaded images
   useEffect(() => {
     setLoadedImages(prev => {
       const newSet = new Set(prev)
@@ -65,7 +63,6 @@ export default function FaithService() {
     setCurrentSlide(index)
   }
 
-  // Auto-scroll thumbnails to keep current slide visible (container only, not page)
   useEffect(() => {
     if (thumbnailRef.current) {
       const container = thumbnailRef.current
@@ -82,7 +79,6 @@ export default function FaithService() {
 
   useEffect(() => {
     if (isPaused) return
-
     const interval = setInterval(nextSlide, 4000)
     return () => clearInterval(interval)
   }, [isPaused, nextSlide])
@@ -100,14 +96,15 @@ export default function FaithService() {
         >
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="h-px w-12 bg-gold" />
-            <p className="text-gold font-medium tracking-widest uppercase text-sm">
+            <p className="text-gold font-medium tracking-widest uppercase text-lg md:text-xl">
               Faith & Service
             </p>
             <div className="h-px w-12 bg-gold" />
           </div>
+
           <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl text-cream-white mb-4 max-w-4xl mx-auto leading-relaxed">
-            Tamara&apos;s faith and heart for service has propelled her purpose in helping{' '}
-            <span className="text-gold">underserved communities</span> both locally and abroad.
+            Rooted in her faith as an ordained minister, Tamara&apos;s heart for service has propelled her mission to uplift{' '}
+            <span className="text-gold">underserved communities</span>—at home and around the world.
           </h2>
           <p className="text-cream-white/60 text-lg">
             South Africa Mission Trip
@@ -151,12 +148,11 @@ export default function FaithService() {
                     priority={currentSlide === 0}
                     quality={85}
                   />
-                  {/* Subtle gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-matte-black/40 via-transparent to-matte-black/20" />
                 </motion.div>
               </AnimatePresence>
 
-              {/* Preload adjacent images (hidden) */}
+              {/* Preload adjacent images */}
               {Array.from(imagesToLoad).map(idx => (
                 idx !== currentSlide && (
                   <div key={`preload-${idx}`} className="hidden">
@@ -207,11 +203,9 @@ export default function FaithService() {
 
           {/* Thumbnail Strip */}
           <div className="mt-6 relative">
-            {/* Gradient Fades */}
             <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-matte-black to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-matte-black to-transparent z-10 pointer-events-none" />
 
-            {/* Thumbnails Container */}
             <div
               ref={thumbnailRef}
               className="flex gap-3 overflow-x-auto scrollbar-hide py-2 px-8 scroll-smooth"

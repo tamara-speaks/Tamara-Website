@@ -39,9 +39,9 @@ export default function Awards() {
   }
 
   return (
-    <section className="relative h-[90vh] bg-matte-black overflow-hidden">
-      {/* Section Header - Positioned at top */}
-      <div className="absolute top-0 left-0 right-0 z-20 pt-8 pb-4">
+    <section className="bg-matte-black overflow-hidden">
+      {/* Header Section - ABOVE slideshow on black background */}
+      <div className="py-12 bg-matte-black">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -65,95 +65,96 @@ export default function Awards() {
         </motion.div>
       </div>
 
-      {/* Full Screen Image Slideshow */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeIndex}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Image
-            src={awards[activeIndex].src}
-            alt={awards[activeIndex].title}
-            fill
-            className="object-cover object-[center_25%]"
-            priority
-          />
-          {/* Subtle overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-matte-black/70 via-transparent to-matte-black/40" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Caption - Bottom left with backdrop */}
-      <div className="absolute bottom-16 left-6 md:left-12 z-20">
+      {/* Slideshow Section */}
+      <div className="relative h-[70vh]">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeIndex}
-            className="text-left px-6 py-4 bg-matte-black/70 backdrop-blur-sm rounded-lg"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.4 }}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <p className="text-cream-white font-playfair text-lg md:text-xl mb-1">
-              {awards[activeIndex].title}
-            </p>
-            <p className="text-gold text-sm">
-              {awards[activeIndex].subtitle}
-            </p>
+            <Image
+              src={awards[activeIndex].src}
+              alt={awards[activeIndex].title}
+              fill
+              className="object-cover object-[center_25%]"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-matte-black/70 via-transparent to-transparent" />
           </motion.div>
         </AnimatePresence>
-      </div>
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 z-30
-                   w-14 h-14 md:w-16 md:h-16 rounded-full
-                   border border-cream-white/30 text-cream-white
-                   flex items-center justify-center
-                   hover:bg-gold hover:border-gold hover:text-matte-black
-                   transition-all duration-300 backdrop-blur-sm bg-matte-black/20"
-        aria-label="Previous award"
-      >
-        <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
+        {/* Caption - Bottom left with backdrop */}
+        <div className="absolute bottom-16 left-6 md:left-12 z-20">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              className="text-left px-6 py-4 bg-matte-black/70 backdrop-blur-sm rounded-lg"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <p className="text-cream-white font-playfair text-lg md:text-xl mb-1">
+                {awards[activeIndex].title}
+              </p>
+              <p className="text-gold text-sm">
+                {awards[activeIndex].subtitle}
+              </p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      <button
-        onClick={nextSlide}
-        className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-30
-                   w-14 h-14 md:w-16 md:h-16 rounded-full
-                   border border-cream-white/30 text-cream-white
-                   flex items-center justify-center
-                   hover:bg-gold hover:border-gold hover:text-matte-black
-                   transition-all duration-300 backdrop-blur-sm bg-matte-black/20"
-        aria-label="Next award"
-      >
-        <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 z-30
+                     w-14 h-14 md:w-16 md:h-16 rounded-full
+                     border border-cream-white/30 text-cream-white
+                     flex items-center justify-center
+                     hover:bg-gold hover:border-gold hover:text-matte-black
+                     transition-all duration-300 backdrop-blur-sm bg-matte-black/20"
+          aria-label="Previous award"
+        >
+          <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
 
-      {/* Dots - Bottom */}
-      <div className="absolute bottom-8 left-0 right-0 z-20">
-        <div className="flex justify-center gap-3">
-          {awards.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                idx === activeIndex
-                  ? 'bg-gold w-10'
-                  : 'bg-cream-white/40 w-2 hover:bg-cream-white/60'
-              }`}
-              aria-label={`Go to award ${idx + 1}`}
-            />
-          ))}
+        <button
+          onClick={nextSlide}
+          className="absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-30
+                     w-14 h-14 md:w-16 md:h-16 rounded-full
+                     border border-cream-white/30 text-cream-white
+                     flex items-center justify-center
+                     hover:bg-gold hover:border-gold hover:text-matte-black
+                     transition-all duration-300 backdrop-blur-sm bg-matte-black/20"
+          aria-label="Next award"
+        >
+          <svg className="w-6 h-6 md:w-7 md:h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+
+        {/* Dots - Bottom */}
+        <div className="absolute bottom-8 left-0 right-0 z-20">
+          <div className="flex justify-center gap-3">
+            {awards.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveIndex(idx)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === activeIndex
+                    ? 'bg-gold w-10'
+                    : 'bg-cream-white/40 w-2 hover:bg-cream-white/60'
+                }`}
+                aria-label={`Go to award ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

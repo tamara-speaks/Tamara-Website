@@ -24,7 +24,7 @@ export default function Introduction() {
             viewport={{ once: true }}
           >
             <div className="h-px w-12 bg-gold" />
-            <p className="text-gold font-medium tracking-widest uppercase text-lg md:text-xl">
+            <p className="text-matte-black font-medium tracking-widest uppercase text-lg md:text-xl">
               Meet Tamara Figueroa-Guzman
             </p>
             <div className="h-px w-12 bg-gold" />
@@ -32,13 +32,13 @@ export default function Introduction() {
 
           {/* Title */}
           <motion.h2
-            className="font-playfair text-2xl sm:text-3xl md:text-4xl text-gold mb-2"
+            className="font-playfair text-3xl sm:text-4xl md:text-5xl text-gold mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            The Purpose & Success Specialist
+            Power & Purpose Strategist
           </motion.h2>
 
           {/* Subtitle */}

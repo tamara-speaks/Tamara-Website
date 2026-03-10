@@ -10,40 +10,41 @@ import { fadeInUp, staggerContainer, staggerItem, scrollTrigger } from '@/lib/an
 const services = [
   {
     title: 'Keynote Speaking',
-    tagline: 'Inspiring \u2022 Transformational \u2022 Impactful',
-    description: 'Tamara energizes audiences with powerful, story-driven keynotes that help students and leaders recognize their worth, ignite purpose, and step confidently onto their own runway for success\u2014driving stronger engagement, resilience, and lasting outcomes.',
-    image: '/services/645A5669.jpg',
+    tagline: 'INSPIRING • TRANSFORMATIONAL • IMPACTFUL',
+    description: 'Tamara energizes audiences with powerful, story-driven keynotes that help students and leaders recognize their worth, ignite purpose, and step confidently onto their own runway for success—driving stronger engagement, resilience, and lasting outcomes.',
+    image: '/services/Edit-6566.jpg',
   },
   {
     title: 'Workshop Facilitation',
-    tagline: 'Interactive \u2022 Practical \u2022 Empowering',
+    tagline: 'INTERACTIVE • PRACTICAL • EMPOWERING',
     description: 'Move beyond inspiration into measurable change through Tamara\'s interactive workshops, where students and staff gain practical tools to build confidence, regulate stress, and take purposeful action that leads to real growth.',
-    image: '/services/Edit-6529.jpg',
+    image: '/services/DSC09740.jpg',
+    objectPosition: '85% center',
   },
   {
     title: 'Conferences',
-    tagline: 'Engaging \u2022 Dynamic \u2022 Memorable',
+    tagline: 'ENGAGING • DYNAMIC • MEMORABLE',
     description: 'Tamara elevates conference experience with dynamic sessions that captivate audiences, unify your event theme, and equip attendees with mindset strategies they can immediately apply to grow, lead, and perform at their highest level.',
-    image: '/services/645A9311.jpg',
+    image: '/services/645A5661.jpg',
   },
   {
     title: 'Professional Development',
-    tagline: 'Restorative \u2022 Insightful \u2022 Results-Driven',
+    tagline: 'RESTORATIVE • INSIGHTFUL • RESULTS-DRIVEN',
     description: 'Drawing from her experience as an educator, Tamara delivers powerful development experiences that strengthen staff mindset, reduce burnout, and help leaders cultivate confident, purpose-driven cultures where both students and educators thrive.',
-    image: '/services/Edit-6951.jpg',
+    image: '/services/DSC09702.jpg',
   },
   {
     title: 'Moderator / Host',
-    tagline: 'Polished \u2022 Engaging \u2022 Professional',
-    description: 'Tamara creates seamless, engaging event experiences by guiding conversations with warmth and expertise\u2014keeping audiences energized, discussions meaningful, and programming flowing with confidence and excellence.',
-    image: '/services/DSC09846-Edit_FINAL.jpg',
+    tagline: 'POLISHED • ENGAGING • PROFESSIONAL',
+    description: 'Tamara creates seamless, engaging event experiences by guiding conversations with warmth and expertise—keeping audiences energized, discussions meaningful, and programming flowing with confidence and excellence.',
+    image: '/services/DSC09842-Edit_FINAL.jpg',
     objectPosition: 'top',
   },
   {
     title: 'Virtual Presentations',
-    tagline: 'Engaging \u2022 Interactive \u2022 Accessible',
+    tagline: 'ENGAGING • INTERACTIVE • ACCESSIBLE',
     description: 'Bring the Create Your Own Runway experience anywhere through high-impact virtual presentations that keep audiences fully engaged while delivering actionable tools that translate into real-world growth, connection, and performance.',
-    image: '/services/Edit-8364.jpg',
+    image: '/services/Virtual Presentations_20260222_160116.jpg',
   },
 ]
 
@@ -52,33 +53,29 @@ export default function ServicesPage() {
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] flex items-center bg-matte-black overflow-hidden">
-          {/* Background */}
-          <div className="absolute inset-0 z-0">
+        {/* Hero Section - UPDATED: Added image above, removed "SERVICES" label */}
+        <section className="relative bg-matte-black overflow-hidden">
+          {/* UPDATED: Hero image at top (below navbar) */}
+          <div className="relative w-full h-[50vh] mt-20">
             <Image
-              src="/landing/hero/Edit-8288.jpg"
+              src="/services/Edit-6473.jpg"
               alt="Tamara Speaking"
               fill
               priority
-              className="object-cover object-[30%_top] opacity-40"
+              className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-matte-black via-matte-black/80 to-matte-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-matte-black/30 via-transparent to-matte-black" />
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+          {/* Content below image */}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
               className="max-w-3xl"
             >
-              <motion.p
-                variants={staggerItem}
-                className="text-gold font-medium tracking-wider uppercase mb-4"
-              >
-                Services
-              </motion.p>
+              {/* REMOVED: "Services" label */}
               <motion.h1
                 variants={staggerItem}
                 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-cream-white mb-6"
@@ -130,6 +127,7 @@ export default function ServicesPage() {
                       <h2 className="font-playfair text-3xl md:text-4xl text-matte-black mb-2">
                         {service.title}
                       </h2>
+                      {/* UPDATED: Capitalized taglines */}
                       <p className="text-gold font-medium tracking-wide">
                         {service.tagline}
                       </p>
@@ -147,7 +145,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Section - UPDATED: Yellow heading, bold text, more space */}
         <section className="section-padding bg-matte-black">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
@@ -156,9 +154,10 @@ export default function ServicesPage() {
               whileInView="visible"
               viewport={scrollTrigger}
             >
+              {/* UPDATED: Yellow color, more space above */}
               <motion.h2
                 variants={staggerItem}
-                className="font-playfair text-3xl md:text-4xl text-cream-white mb-6"
+                className="font-playfair text-3xl md:text-4xl text-gold mb-6 mt-8"
               >
                 Ready to Elevate Confidence, Purpose, and Outcomes?
               </motion.h2>
@@ -166,11 +165,12 @@ export default function ServicesPage() {
                 variants={staggerItem}
                 className="text-cream-white/80 text-lg mb-4 max-w-3xl mx-auto"
               >
-                Schools and organizations partner with Tamara because she delivers more than inspiration&mdash;she delivers transformation. By taking the time to understand your goals, culture, and audience, she creates tailored experiences with practical tools that empower students and leaders to rise beyond challenges, strengthen resilience, and step confidently onto their own runway for success.
+                Schools and organizations partner with Tamara because she delivers more than inspiration—she delivers transformation. By taking the time to understand your goals, culture, and audience, she creates tailored experiences with practical tools that empower students and leaders to rise beyond challenges, strengthen resilience, and step confidently onto their own runway for success.
               </motion.p>
+              {/* UPDATED: Bold text */}
               <motion.p
                 variants={staggerItem}
-                className="text-cream-white/70 text-lg mb-8"
+                className="text-cream-white/70 text-lg mb-8 font-bold"
               >
                 Let&apos;s explore how we can partner to create a meaningful and lasting impact together.
               </motion.p>
@@ -186,7 +186,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Tagline Banner */}
+        {/* Tagline Banner - UPDATED: Separators instead of periods */}
         <section className="py-16 bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.p
@@ -196,7 +196,7 @@ export default function ServicesPage() {
               viewport={scrollTrigger}
               className="font-playfair text-2xl md:text-3xl text-matte-black"
             >
-              Create Confidence. Cultivate Purpose. Change Outcomes.
+              Create Confidence • Cultivate Purpose • Change Outcomes.
             </motion.p>
           </div>
         </section>

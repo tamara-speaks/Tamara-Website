@@ -12,50 +12,34 @@ export default function AboutPage() {
     <>
       <Header />
       <main>
-        {/* Hero Section - Who Is Tamara? */}
-        <section className="relative min-h-screen flex items-center bg-matte-black overflow-hidden">
-          {/* Background Image */}
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/about/Tamara_DSC09837_FINAL.jpg"
-              alt="Tamara Figueroa-Guzman"
-              fill
-              priority
-              className="object-cover object-[center_15%] opacity-50"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-matte-black/90 via-matte-black/70 to-transparent" />
-          </div>
-
+        {/* Hero Section - UPDATED: No background image, bigger WHO IS TAMARA */}
+        <section className="relative min-h-[60vh] flex items-center bg-matte-black overflow-hidden">
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
-              className="max-w-3xl"
+              className="max-w-3xl text-center mx-auto"
             >
-              <motion.p
-                variants={staggerItem}
-                className="text-gold font-medium tracking-wider uppercase mb-4"
-              >
-                Who Is Tamara?
-              </motion.p>
+              {/* UPDATED: Bigger WHO IS TAMARA */}
               <motion.h1
                 variants={staggerItem}
-                className="font-playfair text-4xl sm:text-5xl md:text-6xl text-cream-white mb-6"
+                className="text-gold font-medium tracking-wider uppercase mb-4 text-2xl md:text-3xl"
               >
-                From Survival Mode to the Runway
+                Who Is Tamara?
               </motion.h1>
+              {/* UPDATED: Added subtitle */}
               <motion.p
                 variants={staggerItem}
-                className="text-cream-white/80 text-lg md:text-xl leading-relaxed"
+                className="text-cream-white/70 text-lg md:text-xl mb-8"
               >
-                Before she ever stepped onto a stage, Tamara Figueroa-Guzman was learning how to survive.
+                Motivational Speaker | Educator | Former Runway Model | Ordained Minister
               </motion.p>
             </motion.div>
           </div>
         </section>
 
-        {/* Story Section 1 - Brooklyn Origins */}
+        {/* UPDATED: Combined Brooklyn story with "From Survival Mode" header */}
         <section className="section-padding bg-cream-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -82,8 +66,16 @@ export default function AboutPage() {
                 viewport={scrollTrigger}
                 className="space-y-6"
               >
+                {/* UPDATED: Line break at "the Runway" */}
+                <motion.h2
+                  variants={staggerItem}
+                  className="font-playfair text-3xl md:text-4xl text-matte-black"
+                >
+                  From Survival Mode to<br />the Runway
+                </motion.h2>
+                {/* UPDATED: Merged intro text */}
                 <motion.p variants={staggerItem} className="text-matte-black/80 text-lg leading-relaxed">
-                  Growing up in Brooklyn&apos;s Bed-Stuy &ldquo;Do-or-Die&rdquo; neighborhood, she navigated environments that demanded resilience at an early age. While many paths around her led to limitations, Tamara chose a different direction — one driven by discipline, purpose, and vision.
+                  Before she ever stepped onto a stage, Tamara Figueroa-Guzman was learning how to survive. Growing up in Brooklyn&apos;s Bed-Stuy &ldquo;Do-or-Die&rdquo; neighborhood, she navigated environments that demanded resilience at an early age. While many paths around her led to limitations, Tamara chose a different direction — one driven by discipline, purpose, and vision.
                 </motion.p>
                 <motion.p variants={staggerItem} className="text-matte-black/80 text-lg leading-relaxed">
                   As a straight-A honor student, she balanced academic excellence with an unexpected opportunity: winning a New York City modeling contract at just sixteen years old. While others saw glamour, Tamara saw something deeper — an escape and powerful metaphor that would later define her life&apos;s work:
@@ -101,7 +93,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Create Your Own Runway Program */}
+        {/* Create Your Own Runway Program - UPDATED: Bigger label, smaller title */}
         <section className="section-padding bg-matte-black text-center">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -110,15 +102,17 @@ export default function AboutPage() {
               whileInView="visible"
               viewport={scrollTrigger}
             >
+              {/* UPDATED: A little bigger */}
               <motion.p
                 variants={staggerItem}
-                className="text-cream-white/70 uppercase tracking-wider mb-4"
+                className="text-cream-white/70 uppercase tracking-wider mb-4 text-base md:text-lg"
               >
                 Tamara used her unique life experience to craft her signature program:
               </motion.p>
+              {/* UPDATED: A little smaller */}
               <motion.h2
                 variants={staggerItem}
-                className="font-playfair text-4xl sm:text-5xl md:text-6xl text-gold mb-8"
+                className="font-playfair text-3xl sm:text-4xl md:text-5xl text-gold mb-8"
               >
                 &ldquo;Create Your Own Runway&rdquo;
               </motion.h2>
@@ -137,11 +131,12 @@ export default function AboutPage() {
                 viewport={scrollTrigger}
                 className="space-y-6 order-2 lg:order-1"
               >
+                {/* UPDATED: Line break at "You Are" */}
                 <motion.h2
                   variants={staggerItem}
                   className="font-playfair text-3xl md:text-4xl text-matte-black"
                 >
-                  The Power of Knowing Who You Are
+                  The Power of Knowing Who<br />You Are
                 </motion.h2>
                 <motion.p variants={staggerItem} className="text-matte-black/80 text-lg leading-relaxed">
                   As a proud Afro-Latina of Dominican, Panamanian, Jamaican, and African heritage, Tamara&apos;s identity is deeply rooted in family, culture, and community. These foundations shaped her belief that every person — regardless of their circumstances — carries untapped potential waiting to be realized.
@@ -182,18 +177,37 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Award Winning Speaker Banner */}
+        {/* Award Winning Speaker Banner - UPDATED: Bigger text, crown icons */}
         <section className="py-16 bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.p
+            <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={scrollTrigger}
-              className="font-playfair text-2xl md:text-3xl text-matte-black"
+              className="flex items-center justify-center gap-4"
             >
-              Creating Her Own Runway From Stage to Stage and Becoming an Award-Winning Motivational Speaker
-            </motion.p>
+              {/* Crown icon left */}
+              <Image
+                src="/logo/Tamara FG_1X1_Logo_CROWN Only.png"
+                alt="Crown"
+                width={40}
+                height={40}
+                className="opacity-60"
+              />
+              {/* UPDATED: Bigger text */}
+              <p className="font-playfair text-2xl md:text-4xl text-matte-black">
+                Creating Her Own Runway From Stage to Stage and Becoming an Award-Winning Motivational Speaker
+              </p>
+              {/* Crown icon right */}
+              <Image
+                src="/logo/Tamara FG_1X1_Logo_CROWN Only.png"
+                alt="Crown"
+                width={40}
+                height={40}
+                className="opacity-60"
+              />
+            </motion.div>
           </div>
         </section>
 
@@ -224,11 +238,12 @@ export default function AboutPage() {
                 viewport={scrollTrigger}
                 className="space-y-6"
               >
+                {/* UPDATED: Line break at "the Classroom" */}
                 <motion.h2
                   variants={staggerItem}
                   className="font-playfair text-3xl md:text-4xl text-matte-black"
                 >
-                  Changing Lives Beyond the Classroom
+                  Changing Lives Beyond<br />the Classroom
                 </motion.h2>
                 <motion.p variants={staggerItem} className="text-matte-black/80 text-lg leading-relaxed">
                   As the first in her family to graduate college, an alumna of New York&apos;s Fashion Institute of Technology, Tamara didn&apos;t just break barriers — she opened doors for others to follow.
@@ -261,7 +276,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Mission Section */}
+        {/* Mission Section - UPDATED: Bigger TAMARA'S GOAL, line break, new image */}
         <section className="section-padding bg-matte-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -272,17 +287,19 @@ export default function AboutPage() {
                 viewport={scrollTrigger}
                 className="space-y-6"
               >
+                {/* UPDATED: A little bigger */}
                 <motion.p
                   variants={staggerItem}
-                  className="text-gold uppercase tracking-wider"
+                  className="text-gold uppercase tracking-wider text-lg"
                 >
                   Tamara&apos;s Goal
                 </motion.p>
+                {/* UPDATED: Line break at "to Rise" */}
                 <motion.h2
                   variants={staggerItem}
                   className="font-playfair text-3xl md:text-4xl text-cream-white"
                 >
-                  Creating Runways for Others to Rise
+                  Creating Runways for Others<br />to Rise
                 </motion.h2>
                 <motion.p variants={staggerItem} className="text-cream-white/80 text-lg leading-relaxed">
                   Today, Tamara brings her life story, educational expertise, and transformational framework to stages across the country. As a speaker, advisor, moderator, and mentor, she partners with schools and organizations to strengthen student outcomes, increase retention, and support educator well-being — all through the power of confidence, identity, and purpose.
@@ -312,12 +329,13 @@ export default function AboutPage() {
                 whileInView="visible"
                 viewport={scrollTrigger}
               >
+                {/* UPDATED: New image */}
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/about/DSC09849-Edit.jpg"
+                    src="/about/Edit-6951_FINAL.jpg"
                     alt="Tamara's Goal"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 </div>
               </motion.div>
@@ -325,7 +343,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA Section - UPDATED: New text, new button label */}
         <section className="section-padding bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
@@ -334,21 +352,37 @@ export default function AboutPage() {
               whileInView="visible"
               viewport={scrollTrigger}
             >
+              {/* UPDATED: Added "Dream It • Design It • Do It" */}
+              <motion.p
+                variants={staggerItem}
+                className="text-matte-black/70 text-lg mb-4"
+              >
+                Dream It • Design It • Do It
+              </motion.p>
+              {/* UPDATED: New heading */}
               <motion.h2
                 variants={staggerItem}
                 className="font-playfair text-3xl md:text-4xl text-matte-black mb-6"
               >
-                Ready to Create Your Own Runway?
+                Ready to Elevate What&apos;s Possible?
               </motion.h2>
+              {/* UPDATED: New text */}
+              <motion.p
+                variants={staggerItem}
+                className="text-matte-black/80 text-lg mb-2 max-w-2xl mx-auto"
+              >
+                Let&apos;s partner to create an experience that empowers your community and drives lasting impact.
+              </motion.p>
               <motion.p
                 variants={staggerItem}
                 className="text-matte-black/80 text-lg mb-8 max-w-2xl mx-auto"
               >
-                Partner with Tamara to bring transformation to your school, organization, or event.
+                The next breakthrough starts with a conversation.
               </motion.p>
+              {/* UPDATED: New button label */}
               <motion.div variants={staggerItem}>
                 <Button variant="white" href="/book">
-                  Book Tamara Today
+                  Schedule Your Call Today
                 </Button>
               </motion.div>
             </motion.div>

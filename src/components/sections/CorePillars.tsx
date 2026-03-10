@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { fadeInLeft, fadeInRight, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
+import { fadeInLeft, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
 
 const pillars = [
   {
@@ -39,7 +39,7 @@ export default function CorePillars() {
             <span className="text-gold">Breakthroughs</span>{' '}
             Begin
           </h2>
-          <p className="text-matte-black/70 text-xl md:text-2xl font-playfair italic max-w-3xl mx-auto">
+          <p className="text-matte-black/70 text-xl md:text-2xl font-playfair max-w-3xl mx-auto">
             When Identity Grows, Confidence Rises, and Purpose Takes Flight.
           </p>
         </motion.div>
@@ -52,11 +52,8 @@ export default function CorePillars() {
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <p className="text-matte-black/80 text-lg leading-relaxed mb-4">
-            Tamara&apos;s Create Your Own Runway experiences focus on the three pillars that drive engagement, resilience, leadership, and long-term success.
-          </p>
           <p className="text-matte-black/80 text-lg leading-relaxed">
-            Tailored programs that meet students exactly where they are and inspire them to reach where they&apos;re meant to be.
+            Tamara&apos;s Create Your Own Runway experiences focus on the three pillars that drive engagement, resilience, leadership, and long-term success.
           </p>
         </motion.div>
 
@@ -74,7 +71,7 @@ export default function CorePillars() {
                 src="/services/DSC09846-Edit_FINAL.jpg"
                 alt="Tamara Figueroa-Guzman"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[center_10%]"
               />
               {/* Gold accent border */}
               <div className="absolute inset-0 border-2 border-gold/20 rounded-2xl" />
@@ -89,13 +86,13 @@ export default function CorePillars() {
             viewport={scrollTrigger}
             className="space-y-8"
           >
-            {pillars.map((pillar, index) => (
+            {pillars.map((pillar) => (
               <motion.div
                 key={pillar.title}
                 variants={staggerItem}
                 className="relative pl-6 border-l-4 border-gold"
               >
-                <h3 className="font-playfair text-2xl md:text-3xl text-matte-black mb-2">
+                <h3 className="font-playfair text-xl md:text-2xl text-matte-black mb-2">
                   {pillar.title}
                 </h3>
                 <p className="text-matte-black/70 text-lg leading-relaxed mb-3">

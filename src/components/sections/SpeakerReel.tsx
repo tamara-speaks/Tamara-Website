@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
 
 const YOUTUBE_VIDEO_ID = '1Wxlp-hfXmE'
-const CUSTOM_THUMBNAIL = '/landing/thumbnail.png' // Custom thumbnail image
+const CUSTOM_THUMBNAIL = '/landing/thumbnail.png'
 
 export default function SpeakerReel() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -20,19 +20,21 @@ export default function SpeakerReel() {
   return (
     <section id="speaker-reel" className="py-20 bg-matte-black">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Logo */}
         <motion.div
-          className="text-center mb-12"
+          className="flex justify-center mb-12"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={scrollTrigger}
         >
-          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-cream-white">
-            Experience the{' '}
-            <span className="text-gold-gradient bg-clip-text text-transparent bg-gold-gradient">
-              Impact
-            </span>
-          </h2>
+          <Image
+            src="/logo/Tamara FG_Logo NEW_For BLACK Background.png"
+            alt="Tamara Figueroa-Guzman"
+            width={300}
+            height={120}
+            className="w-[250px] md:w-[300px]"
+          />
         </motion.div>
 
         {/* Video Container */}
@@ -82,13 +84,6 @@ export default function SpeakerReel() {
                     </svg>
                   </div>
                 </motion.div>
-              </div>
-
-              {/* "Watch Reel" text */}
-              <div className="absolute bottom-6 left-0 right-0 text-center">
-                <p className="text-cream-white/80 text-sm font-medium tracking-wider uppercase">
-                  {YOUTUBE_VIDEO_ID ? 'Watch Reel' : 'Coming Soon'}
-                </p>
               </div>
             </div>
           ) : (

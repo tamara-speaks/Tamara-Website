@@ -117,7 +117,7 @@ export default function Footer() {
               &copy; 2023 Tamara Figueroa-Guzman. All rights reserved.
             </p>
             <p className="text-cream-white/60 text-sm">
-              Empowering students and leaders worldwide
+              EMPOWERING STUDENTS & LEADERS WORLDWIDE
             </p>
           </div>
         </div>

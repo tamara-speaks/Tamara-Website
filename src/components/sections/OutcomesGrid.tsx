@@ -18,7 +18,7 @@ const outcomes = [
       'Self-Expression',
       'Anti-bullying',
     ],
-    accentColor: '#D4AF37',
+    accentColor: '#B8860B',
     imagePosition: 'center',
   },
   {
@@ -33,7 +33,7 @@ const outcomes = [
       'Emotional Regulation',
       'Goal Awareness',
     ],
-    accentColor: '#2D5A27',
+    accentColor: '#B8860B',
     imagePosition: 'center',
   },
   {
@@ -48,8 +48,8 @@ const outcomes = [
       'Decision Making',
       'Future Readiness',
     ],
-    accentColor: '#C4A77D',
-    imagePosition: 'left',
+    accentColor: '#B8860B',
+    imagePosition: 'center',
   },
   {
     level: 'College / Universities',
@@ -64,7 +64,7 @@ const outcomes = [
       'Burnout Prevention',
     ],
     accentColor: '#B8860B',
-    imagePosition: 'right',
+    imagePosition: 'center',
   },
 ]
 
@@ -104,7 +104,7 @@ export default function OutcomesGrid() {
             <div className="h-px w-12 bg-gold" />
           </motion.div>
 
-          <h2 className="font-playfair text-xl sm:text-2xl md:text-3xl text-cream-white/50 mb-4">
+          <h2 className="font-playfair mb-4 text-2xl sm:text-3xl md:text-4xl text-cream-white">
             Tamara Speaks To
           </h2>
         </motion.div>
@@ -128,7 +128,7 @@ export default function OutcomesGrid() {
           whileInView="visible"
           viewport={scrollTrigger}
         >
-          {outcomes.map((item: { level: string; number: string; image: string; tagline: string; outcomes: string[]; accentColor: string; imagePosition: string }, index: number) => (
+          {outcomes.map((item, index) => (
             <motion.div
               key={item.level}
               className="relative"
@@ -189,7 +189,7 @@ export default function OutcomesGrid() {
                     </h3>
                     <div
                       className="w-16 h-1 rounded-full"
-                      style={{ background: `linear-gradient(90deg, ${item.accentColor}, transparent)` }}
+                      style={{ background: `linear-gradient(90deg, #B8860B, transparent)` }}
                     />
                   </div>
 
@@ -225,17 +225,6 @@ export default function OutcomesGrid() {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Tagline after grid */}
-        <motion.p
-          className="text-cream-white/70 text-lg md:text-xl text-center max-w-3xl mx-auto mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          Tailored programs that meet students where they are and empower them to become who they&apos;re meant to be.
-        </motion.p>
       </div>
     </section>
   )

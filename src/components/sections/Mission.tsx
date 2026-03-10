@@ -23,7 +23,7 @@ export default function Mission() {
             viewport={{ once: true }}
           >
             <div className="h-px w-12 bg-gold" />
-            <p className="text-gold font-medium tracking-widest uppercase text-lg md:text-xl">
+            <p className="text-matte-black font-medium tracking-widest uppercase text-lg md:text-xl">
               Tamara&apos;s Mission
             </p>
             <div className="h-px w-12 bg-gold" />
@@ -38,7 +38,7 @@ export default function Mission() {
             viewport={{ once: true }}
           >
             <span className="text-matte-black/40">To Empower</span>{' '}
-            <span className="bg-gradient-to-r from-[#FFD700] via-[#D4AF37] to-[#B8860B] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#FFD700] bg-clip-text text-transparent">
               100K+ Students, Teachers, and Emerging Leaders
             </span>{' '}
             <span className="text-matte-black/40">Each Year</span>
@@ -67,15 +67,15 @@ export default function Mission() {
             <ul className="space-y-4 text-left max-w-md mx-auto">
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                Recognize Their Worth
+                Recognize Their <span className="font-bold text-[#B8860B]">Worth</span>
               </li>
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                Build Unshakable Confidence
+                Build Unshakable <span className="font-bold text-[#B8860B]">Confidence</span>
               </li>
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                Create Their Own Runway for Success
+                Create Their Own Runway for <span className="font-bold text-[#B8860B]">Success</span>
               </li>
             </ul>
           </motion.div>
@@ -89,9 +89,9 @@ export default function Mission() {
             viewport={{ once: true }}
           >
             {[
-              { value: '100K+', label: 'Annual Impact Goal' },
-              { value: '20+', label: 'Countries Reached' },
-              { value: '500+', label: 'Keynotes Delivered' },
+              { value: '10+', label: 'Years Empowering Students' },
+              { value: '3+', label: 'Countries Reached' },
+              { value: '50+', label: 'Workshops Delivered' },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-playfair text-4xl md:text-5xl text-gold-gradient bg-clip-text text-transparent bg-gold-gradient font-bold">

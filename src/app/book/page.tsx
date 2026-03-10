@@ -6,7 +6,7 @@ import Image from 'next/image'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
+import { fadeInUp, fadeInLeft, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
 
 const steps = [
   {
@@ -52,7 +52,6 @@ export default function BookPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission - integrate with HubSpot or email service
     console.log('Form submitted:', formData)
     alert('Thank you for your inquiry! We will be in touch soon.')
   }
@@ -61,11 +60,22 @@ export default function BookPage() {
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center bg-matte-black overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full">
+        {/* UPDATED: Hero image at top */}
+        <section className="relative bg-matte-black overflow-hidden">
+          <div className="relative w-full h-[50vh] mt-20">
+            <Image
+              src="/contact/Edit-8223.jpg"
+              alt="Tamara Speaking"
+              fill
+              priority
+              className="object-cover object-[center_25%]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-matte-black/30 via-transparent to-matte-black" />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* Image */}
+              {/* UPDATED: New image */}
               <motion.div
                 variants={fadeInLeft}
                 initial="hidden"
@@ -74,16 +84,14 @@ export default function BookPage() {
               >
                 <div className="relative aspect-[3/4] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src="/landing/hero/Edit-8288.jpg"
+                    src="/about/Tamara_DSC09837_FINAL.jpg"
                     alt="Tamara Figueroa-Guzman"
                     fill
-                    priority
-                    className="object-cover"
+                    className="object-cover object-top"
                   />
                 </div>
               </motion.div>
 
-              {/* Content */}
               <motion.div
                 variants={staggerContainer}
                 initial="hidden"
@@ -96,9 +104,10 @@ export default function BookPage() {
                 >
                   Let&apos;s Change Some Lives Together!
                 </motion.h1>
+                {/* UPDATED: Sans-serif */}
                 <motion.h2
                   variants={staggerItem}
-                  className="text-gold text-2xl md:text-3xl font-playfair mb-6"
+                  className="text-gold text-2xl md:text-3xl font-sans font-bold mb-6"
                 >
                   Schedule a Consultation Now!
                 </motion.h2>
@@ -108,18 +117,14 @@ export default function BookPage() {
                 >
                   This is the first step to getting your questions answered about bringing Tamara to your school or organization.
                 </motion.p>
+                {/* UPDATED: Changed "tour" to "experience" */}
                 <motion.p
                   variants={staggerItem}
-                  className="text-cream-white/80 text-lg mb-6"
+                  className="text-cream-white/80 text-lg mb-8"
                 >
-                  Book a complimentary consultation and learn how Tamara&apos;s <span className="text-gold font-semibold">Create Your Own Runway</span> tour can inspire, empower, and impact your audience.
+                  Book a complimentary consultation and learn how Tamara&apos;s <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower, and impact your audience.
                 </motion.p>
-                <motion.p
-                  variants={staggerItem}
-                  className="text-cream-white/60 text-base mb-8"
-                >
-                  Prefer to start with details? No problem. You can just complete the form below instead.
-                </motion.p>
+                {/* REMOVED: "Prefer to start with details?" paragraph */}
                 <motion.div variants={staggerItem}>
                   <Button
                     variant="primary"
@@ -138,7 +143,7 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* What to Expect Section */}
+        {/* What to Expect Section - UPDATED: Removed button */}
         <section className="section-padding bg-cream-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -181,25 +186,11 @@ export default function BookPage() {
                 </motion.div>
               ))}
             </div>
-
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={scrollTrigger}
-              className="text-center mt-16"
-            >
-              <p className="text-matte-black/80 text-lg mb-6">
-                See what becomes possible when confidence meets purpose.
-              </p>
-              <Button variant="secondary" href="#speaker-video" className="text-matte-black border-matte-black hover:bg-matte-black hover:text-cream-white">
-                Step Into the Experience
-              </Button>
-            </motion.div>
+            {/* REMOVED: "Step Into the Experience" button and text (moved to video section) */}
           </div>
         </section>
 
-        {/* Video Section */}
+        {/* Video Section - UPDATED: New title, yellow color, subtitle, new video */}
         <section id="speaker-video" className="section-padding bg-matte-black">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -209,11 +200,17 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="text-center mb-12"
             >
-              <h2 className="font-playfair text-3xl md:text-4xl text-cream-white mb-4">
-                Experience the Impact
+              {/* UPDATED: Yellow title */}
+              <h2 className="font-playfair text-3xl md:text-4xl text-gold mb-4">
+                Step Into the Experience
               </h2>
+              {/* UPDATED: Moved subtitle here */}
+              <p className="text-cream-white/80 text-lg">
+                See what becomes possible when confidence meets purpose.
+              </p>
             </motion.div>
 
+            {/* UPDATED: Using local video file */}
             <motion.div
               variants={fadeInUp}
               initial="hidden"
@@ -221,18 +218,17 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
             >
-              <iframe
-                src="https://www.youtube.com/embed/1Wxlp-hfXmE"
-                title="Tamara Figueroa-Guzman Speaker Reel"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
+              <video
+                src="/contact/tamara h.mov"
+                controls
+                className="w-full h-full object-cover"
+                playsInline
               />
             </motion.div>
           </div>
         </section>
 
-        {/* Booking Form Section */}
+        {/* Booking Form Section - UPDATED: Added intro text */}
         <section id="booking-form" className="section-padding bg-cream-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -242,6 +238,13 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="text-center mb-12"
             >
+              {/* UPDATED: Added intro sentence */}
+              <motion.p
+                variants={staggerItem}
+                className="text-matte-black/70 text-lg mb-4"
+              >
+                If you need more information, you&apos;re welcome to complete the form below.
+              </motion.p>
               <motion.h2
                 variants={staggerItem}
                 className="font-playfair text-3xl md:text-4xl text-matte-black mb-4"
@@ -512,7 +515,7 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* Final CTA */}
+        {/* Final CTA - UPDATED: Separators instead of periods */}
         <section className="py-16 bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.p
@@ -522,7 +525,7 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="font-playfair text-2xl md:text-3xl text-matte-black"
             >
-              Create Confidence. Cultivate Purpose. Change Outcomes.
+              Create Confidence • Cultivate Purpose • Change Outcomes.
             </motion.p>
           </div>
         </section>
