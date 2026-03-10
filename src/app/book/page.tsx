@@ -210,19 +210,19 @@ export default function BookPage() {
               </p>
             </motion.div>
 
-            {/* UPDATED: Using local video file */}
+            {/* UPDATED: Using YouTube embed instead of local video file */}
             <motion.div
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={scrollTrigger}
-              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
+              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-gold/20"
             >
-              <video
-                src="/contact/tamara h.mov"
-                controls
-                className="w-full h-full object-cover"
-                playsInline
+              <iframe
+                src="https://www.youtube.com/embed/K0QOANwq7Yg"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
               />
             </motion.div>
           </div>

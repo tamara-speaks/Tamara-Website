@@ -7,7 +7,7 @@ import { fadeInUp, scrollTrigger } from '@/lib/animations'
 const testimonialGroups = [
   {
     video: {
-      src: '/testimonials/DSC_1354.MOV',
+      src: 'https://www.youtube.com/embed/8qRQlrOtSyw',
       name: 'Student Testimonial',
       title: 'Impact Story',
     },
@@ -19,7 +19,7 @@ const testimonialGroups = [
   },
   {
     video: {
-      src: '/testimonials/DSC_1368.MOV',
+      src: 'https://www.youtube.com/embed/hXVjOgnpBZk',
       name: 'Educator Testimonial',
       title: 'Transformation',
     },
@@ -31,7 +31,7 @@ const testimonialGroups = [
   },
   {
     video: {
-      src: '/testimonials/Tamara Testimonial_THRIVE_Mrs Rich.mp4',
+      src: 'https://www.youtube.com/embed/FIHZOwOxVwM',
       name: 'Mrs. Rich',
       title: 'THRIVE Program',
     },
@@ -88,13 +88,13 @@ export default function Testimonials() {
           >
             {/* Featured Video - Left Side */}
             <div className="bg-cream-white/5 border border-gold/20 rounded-2xl p-4 md:p-6">
-              <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
-                <video
+              <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-gold/10">
+                <iframe
                   key={currentGroup.video.src}
                   src={currentGroup.video.src}
-                  controls
-                  className="w-full h-full object-cover"
-                  playsInline
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
                 />
               </div>
               <div className="text-center">
