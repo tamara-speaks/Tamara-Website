@@ -30,15 +30,15 @@ export default function Introduction() {
             <div className="h-px w-12 bg-gold" />
           </motion.div>
 
-          {/* Title */}
+          {/* Title - made a little bigger */}
           <motion.h2
-            className="font-playfair text-3xl sm:text-4xl md:text-5xl text-gold mb-2"
+            className="font-playfair text-4xl sm:text-5xl md:text-6xl text-gold mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Power & Purpose Strategist
+            Purpose & Power Strategist
           </motion.h2>
 
           {/* Subtitle */}

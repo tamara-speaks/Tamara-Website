@@ -145,8 +145,8 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA Section - UPDATED: Yellow heading, bold text, more space */}
-        <section className="section-padding bg-matte-black">
+        {/* CTA Section - UPDATED: Yellow heading, bold text, more space above */}
+        <section className="py-24 md:py-32 bg-matte-black">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
               variants={staggerContainer}
@@ -167,10 +167,10 @@ export default function ServicesPage() {
               >
                 Schools and organizations partner with Tamara because she delivers more than inspiration—she delivers transformation. By taking the time to understand your goals, culture, and audience, she creates tailored experiences with practical tools that empower students and leaders to rise beyond challenges, strengthen resilience, and step confidently onto their own runway for success.
               </motion.p>
-              {/* UPDATED: Bold text */}
+              {/* UPDATED: Bold text, yellow color */}
               <motion.p
                 variants={staggerItem}
-                className="text-cream-white/70 text-lg mb-8 font-bold"
+                className="text-gold text-lg mb-8 font-bold"
               >
                 Let&apos;s explore how we can partner to create a meaningful and lasting impact together.
               </motion.p>

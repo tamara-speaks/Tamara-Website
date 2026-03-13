@@ -17,6 +17,9 @@ const clients = [
   { name: 'Toastmasters', logo: '/trusted-by-logos/Toastmaster_colorlogowithwebsite_White.png', keepSmall: false },
 ]
 
+// Double the clients array so logos appear twice before looping
+const doubledClients = [...clients, ...clients]
+
 export default function TrustedBy() {
   return (
     <section className="py-20 bg-cream-white overflow-hidden">
@@ -45,24 +48,13 @@ export default function TrustedBy() {
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-cream-white to-transparent z-10 pointer-events-none" />
 
           {/* Scrolling Container */}
-          <div className="marquee-container overflow-hidden">
-            <motion.div
-              className="flex gap-12 items-center"
-              animate={{ x: ['0%', '-50%'] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: 'loop',
-                  duration: 20,
-                  ease: 'linear',
-                },
-              }}
-            >
-              {/* First set */}
-              {clients.map((client) => (
+          <div className="overflow-hidden">
+            <div className="marquee-track">
+              {/* First set - all logos twice (1-10, 1-10) */}
+              {doubledClients.map((client, index) => (
                 <div
-                  key={client.name}
-                  className={`flex-shrink-0 relative ${
+                  key={`first-${index}`}
+                  className={`flex-shrink-0 relative mx-6 ${
                     client.keepSmall ? 'h-16 w-40' : 'h-20 w-48'
                   }`}
                 >
@@ -74,11 +66,11 @@ export default function TrustedBy() {
                   />
                 </div>
               ))}
-              {/* Duplicate for seamless loop */}
-              {clients.map((client) => (
+              {/* Duplicate set for seamless loop */}
+              {doubledClients.map((client, index) => (
                 <div
-                  key={`${client.name}-dup`}
-                  className={`flex-shrink-0 relative ${
+                  key={`second-${index}`}
+                  className={`flex-shrink-0 relative mx-6 ${
                     client.keepSmall ? 'h-16 w-40' : 'h-20 w-48'
                   }`}
                 >
@@ -90,10 +82,27 @@ export default function TrustedBy() {
                   />
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          animation: scroll 45s linear infinite;
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   )
 }

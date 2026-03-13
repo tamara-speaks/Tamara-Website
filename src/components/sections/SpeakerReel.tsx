@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
 
 const YOUTUBE_VIDEO_ID = '1Wxlp-hfXmE'
-const CUSTOM_THUMBNAIL = '/landing/thumbnail.png'
+const LOGO_THUMBNAIL = '/logo/Tamara FG_Logo NEW_For BLACK Background.png'
 
 export default function SpeakerReel() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -20,21 +20,17 @@ export default function SpeakerReel() {
   return (
     <section id="speaker-reel" className="py-20 bg-matte-black">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+        {/* Section Header - Text instead of logo */}
         <motion.div
-          className="flex justify-center mb-12"
+          className="text-center mb-12"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={scrollTrigger}
         >
-          <Image
-            src="/logo/Tamara FG_Logo NEW_For BLACK Background.png"
-            alt="Tamara Figueroa-Guzman"
-            width={300}
-            height={120}
-            className="w-[250px] md:w-[300px]"
-          />
+          <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-gold">
+            Experience the Impact
+          </h2>
         </motion.div>
 
         {/* Video Container */}
@@ -46,21 +42,21 @@ export default function SpeakerReel() {
           viewport={{ once: true }}
         >
           {!isPlaying ? (
-            /* Custom Thumbnail Overlay */
+            /* Logo Thumbnail Overlay */
             <div
-              className="absolute inset-0 cursor-pointer group"
+              className="absolute inset-0 cursor-pointer group bg-matte-black"
               onClick={handlePlay}
             >
-              {/* Thumbnail Image */}
-              <Image
-                src={CUSTOM_THUMBNAIL}
-                alt="Speaker Reel Thumbnail"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-matte-black/40 group-hover:bg-matte-black/30 transition-colors duration-300" />
+              {/* Logo as Thumbnail - centered */}
+              <div className="absolute inset-0 flex items-center justify-center p-12">
+                <Image
+                  src={LOGO_THUMBNAIL}
+                  alt="Tamara Figueroa-Guzman"
+                  width={400}
+                  height={160}
+                  className="w-[280px] md:w-[400px] object-contain transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
 
               {/* Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">

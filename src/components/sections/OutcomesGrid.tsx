@@ -49,7 +49,7 @@ const outcomes = [
       'Future Readiness',
     ],
     accentColor: '#B8860B',
-    imagePosition: 'center',
+    imagePosition: '35% center',
   },
   {
     level: 'College / Universities',
@@ -64,7 +64,7 @@ const outcomes = [
       'Burnout Prevention',
     ],
     accentColor: '#B8860B',
-    imagePosition: 'center',
+    imagePosition: '65% center',
   },
 ]
 
@@ -104,7 +104,7 @@ export default function OutcomesGrid() {
             <div className="h-px w-12 bg-gold" />
           </motion.div>
 
-          <h2 className="font-playfair mb-4 text-2xl sm:text-3xl md:text-4xl text-cream-white">
+          <h2 className="font-playfair mb-4 text-4xl sm:text-5xl md:text-6xl text-cream-white">
             Tamara Speaks To
           </h2>
         </motion.div>
@@ -173,10 +173,8 @@ export default function OutcomesGrid() {
                     src={item.image}
                     alt={item.level}
                     fill
-                    className={`object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-50 ${
-                      item.imagePosition === 'right' ? 'object-right' :
-                      item.imagePosition === 'left' ? 'object-left' : 'object-center'
-                    }`}
+                    className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-50"
+                    style={{ objectPosition: item.imagePosition }}
                   />
 
                   {/* Gradient Overlay */}

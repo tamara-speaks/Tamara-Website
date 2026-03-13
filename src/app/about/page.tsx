@@ -352,10 +352,10 @@ export default function AboutPage() {
               whileInView="visible"
               viewport={scrollTrigger}
             >
-              {/* UPDATED: Added "Dream It • Design It • Do It" */}
+              {/* UPDATED: Added "Dream It • Design It • Do It" - bigger and white */}
               <motion.p
                 variants={staggerItem}
-                className="text-matte-black/70 text-lg mb-4"
+                className="text-white text-xl md:text-2xl font-medium mb-6"
               >
                 Dream It • Design It • Do It
               </motion.p>

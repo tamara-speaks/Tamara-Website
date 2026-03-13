@@ -80,7 +80,7 @@ export default function Awards() {
               src={awards[activeIndex].src}
               alt={awards[activeIndex].title}
               fill
-              className="object-cover object-[center_25%]"
+              className="object-cover object-[center_35%]"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-matte-black/70 via-transparent to-transparent" />

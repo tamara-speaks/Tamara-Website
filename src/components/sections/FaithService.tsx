@@ -7,25 +7,25 @@ import { fadeInUp, scrollTrigger } from '@/lib/animations'
 
 const slides = [
   '/landing/south-africa-slideshow/1-South Africa_36278655996_454f6731b6_k.jpg',
-  '/landing/south-africa-slideshow/2-South Africa_35514601443_ef3a8120fd_6k.jpg',
+  '/landing/south-africa-slideshow/2-South Africa-NEW_35514601443_ef3a8120fd_6k.jpg',
   '/landing/south-africa-slideshow/3-South Africa_36156004272_8ac2860de6_k.jpg',
   '/landing/south-africa-slideshow/4-South Africa_36158230412_2888215e8b_k.jpg',
   '/landing/south-africa-slideshow/5-South Africa_36322781965_e18ebcf89d_6k.jpg',
-  '/landing/south-africa-slideshow/6-South Africa_36154091472_b3f383960f_6k.jpg',
+  '/landing/south-africa-slideshow/6-South Africa-NEW_36154091472_b3f383960f_6k.jpg',
   '/landing/south-africa-slideshow/7-South Africa_35926094860_a4d1afccea_6k.jpg',
   '/landing/south-africa-slideshow/8-South Africa_36322989725_4d854cea1a_k.jpg',
   '/landing/south-africa-slideshow/9-South Africa_36154976342_2044b028f0_k.jpg',
   '/landing/south-africa-slideshow/10-South Africa_36153466282_40d6561f3c_6k.jpg',
-  '/landing/south-africa-slideshow/11-South Africa_36186714611_ddd7313dac_6k.jpg',
+  '/landing/south-africa-slideshow/11-South Africa-NEW_36186714611_ddd7313dac_6k.jpg',
   '/landing/south-africa-slideshow/12-South Africa_35927073990_adca21f923_6k.jpg',
   '/landing/south-africa-slideshow/13-South Africa_35486831634_f159e1e984_6k.jpg',
   '/landing/south-africa-slideshow/14-South Africa_36323081545_3eaf9623a5_6k.jpg',
-  '/landing/south-africa-slideshow/15-South Africa_36279157356_593d8fbacd_6k.jpg',
-  '/landing/south-africa-slideshow/16-South Africa_35927110630_1af17bf099_k.jpg',
+  '/landing/south-africa-slideshow/15-South Africa-NEW_36279157356_593d8fbacd_6k.jpg',
+  '/landing/south-africa-slideshow/16-South Africa-NEW_35927110630_1af17bf099_k.jpg',
   '/landing/south-africa-slideshow/17-South Africa_36187117931_f61736e70d_6k.jpg',
-  '/landing/south-africa-slideshow/18-South Africa_36186044051_1c2a8dc9b9_6k.jpg',
+  '/landing/south-africa-slideshow/18-South Africa-NEW_36186044051_1c2a8dc9b9_6k.jpg',
   '/landing/south-africa-slideshow/19-South Africa_35513762213_7d76dbf4f6_k.jpg',
-  '/landing/south-africa-slideshow/20-South Africa_36153860162_edc96fd605_6k.jpg',
+  '/landing/south-africa-slideshow/20-South Africa-NEW_36153860162_edc96fd605_6k.jpg',
 ]
 
 export default function FaithService() {
