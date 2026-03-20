@@ -97,7 +97,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator - Runway High Heel */}
+      {/* Scroll Indicator - Twisty Arrow */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0, y: -20 }}
@@ -107,45 +107,39 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="flex flex-col items-center"
         >
-          {/* Stiletto High Heel SVG */}
           <svg
-            width="32"
+            width="28"
             height="48"
-            viewBox="0 0 32 48"
+            viewBox="0 0 28 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="text-gold"
           >
-            {/* Heel shoe silhouette */}
+            {/* Twisty spiral arrow pointing down */}
             <path
-              d="M8 4C8 4 10 6 14 8C18 10 24 12 26 16C28 20 28 24 26 28C24 32 20 34 18 36L18 44L14 44L14 36C14 36 8 32 6 28C4 24 4 20 6 16C6 16 6 12 8 8C8 8 8 6 8 4Z"
-              fill="currentColor"
-              fillOpacity="0.9"
+              d="M14 4C14 4 8 10 8 16C8 22 18 22 18 28C18 34 10 34 14 40"
+              stroke="url(#goldGradient)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              fill="none"
             />
-            {/* Stiletto heel */}
+            {/* Arrow head */}
             <path
-              d="M18 36L20 44L18 44L18 36Z"
-              fill="currentColor"
+              d="M9 36L14 44L19 36"
+              stroke="url(#goldGradient)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
             />
-            {/* Sole accent */}
-            <path
-              d="M14 44L20 44L20 46L14 46L14 44Z"
-              fill="currentColor"
-              fillOpacity="0.7"
-            />
+            <defs>
+              <linearGradient id="goldGradient" x1="14" y1="4" x2="14" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#FFD700" />
+                <stop offset="0.5" stopColor="#D4AF37" />
+                <stop offset="1" stopColor="#B8860B" />
+              </linearGradient>
+            </defs>
           </svg>
-          {/* Subtle down arrow beneath */}
-          <motion.div
-            className="mt-1"
-            animate={{ opacity: [0.3, 0.8, 0.3] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          >
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-cream-white/50" />
-            </svg>
-          </motion.div>
         </motion.div>
       </motion.div>
     </section>
