@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 const clients = [
   { name: 'Lifetime', logo: '/trusted-by-logos/Logo_Lifetime_2020.svg.png', size: 'small' },
@@ -22,28 +21,18 @@ const clients = [
 const doubledClients = [...clients, ...clients]
 
 // Helper function to get size classes
-const getSizeClasses = (size: string, isOldVersion: boolean) => {
-  if (isOldVersion) {
-    // OLD: only small vs normal
-    return size === 'small' ? 'h-16 w-40' : 'h-20 w-48'
-  }
-  // NEW: small, normal, large
+const getSizeClasses = (size: string) => {
   switch (size) {
     case 'small':
       return 'h-16 w-40'
     case 'large':
-      return 'h-24 w-56' // bigger for Sheridan, Carver, Balancing Act
+      return 'h-24 w-56'
     default:
       return 'h-20 w-48'
   }
 }
 
 export default function TrustedBy() {
-  const { showOldVersion } = useVersion()
-
-  // OLD: 45s, NEW: 55s (slower)
-  const scrollDuration = showOldVersion ? '45s' : '55s'
-
   return (
     <section className="py-20 bg-cream-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,12 +61,12 @@ export default function TrustedBy() {
 
           {/* Scrolling Container */}
           <div className="overflow-hidden">
-            <div className="marquee-track" style={{ '--scroll-duration': scrollDuration } as React.CSSProperties}>
+            <div className="marquee-track" style={{ '--scroll-duration': '55s' } as React.CSSProperties}>
               {/* First set - all logos twice (1-10, 1-10) */}
               {doubledClients.map((client, index) => (
                 <div
                   key={`first-${index}`}
-                  className={`flex-shrink-0 relative mx-8 ${getSizeClasses(client.size, showOldVersion)}`}
+                  className={`flex-shrink-0 relative mx-8 ${getSizeClasses(client.size)}`}
                 >
                   <Image
                     src={client.logo}
@@ -91,7 +80,7 @@ export default function TrustedBy() {
               {doubledClients.map((client, index) => (
                 <div
                   key={`second-${index}`}
-                  className={`flex-shrink-0 relative mx-8 ${getSizeClasses(client.size, showOldVersion)}`}
+                  className={`flex-shrink-0 relative mx-8 ${getSizeClasses(client.size)}`}
                 >
                   <Image
                     src={client.logo}
@@ -110,7 +99,7 @@ export default function TrustedBy() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: scroll var(--scroll-duration, 45s) linear infinite;
+          animation: scroll var(--scroll-duration, 55s) linear infinite;
         }
 
         @keyframes scroll {

@@ -2,15 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
-import Button from '@/components/ui/Button'
-import { useVersion } from '@/context/VersionContext'
 
 export default function ConsultationCTA() {
-  const { showOldVersion } = useVersion()
-
-  // Only show in NEW version
-  if (showOldVersion) return null
-
   return (
     <section className="py-20" style={{ background: 'linear-gradient(135deg, #C4A77D 0%, #D4AF37 50%, #C4A77D 100%)' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

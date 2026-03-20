@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useState } from 'react'
 import { staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 const outcomes = [
   {
@@ -50,8 +49,7 @@ const outcomes = [
       'Future Readiness',
     ],
     accentColor: '#B8860B',
-    imagePosition: '35% center', // Will be overridden for NEW version
-    imagePositionNew: '25% center', // Shifted to show girl with red book more
+    imagePosition: '25% center',
   },
   {
     level: 'College / Universities',
@@ -66,25 +64,15 @@ const outcomes = [
       'Burnout Prevention',
     ],
     accentColor: '#B8860B',
-    imagePosition: '65% center',
-    imagePositionNew: '55% center', // Adjusted position
+    imagePosition: '55% center',
   },
 ]
 
 export default function OutcomesGrid() {
   const [activeCard, setActiveCard] = useState<number | null>(null)
-  const { showOldVersion } = useVersion()
-
-  // OLD: section-padding (py-20 md:py-28 lg:py-32), NEW: py-20 (consistent)
-  const sectionPadding = showOldVersion ? 'py-20 md:py-28 lg:py-32' : 'py-20'
-
-  // OLD: bigger title, NEW: same size as Award Winning Speaker
-  const titleSize = showOldVersion
-    ? 'text-4xl sm:text-5xl md:text-6xl'
-    : 'text-3xl sm:text-4xl md:text-5xl'
 
   return (
-    <section id="outcomes" className={`${sectionPadding} bg-matte-black relative overflow-hidden`}>
+    <section id="outcomes" className="py-20 bg-matte-black relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -116,7 +104,7 @@ export default function OutcomesGrid() {
             <div className="h-px w-12 bg-gold" />
           </motion.div>
 
-          <h2 className={`font-playfair mb-4 ${titleSize} text-cream-white`}>
+          <h2 className="font-playfair mb-4 text-3xl sm:text-4xl md:text-5xl text-cream-white">
             Tamara Speaks To
           </h2>
         </motion.div>
@@ -186,7 +174,7 @@ export default function OutcomesGrid() {
                     alt={item.level}
                     fill
                     className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-50"
-                    style={{ objectPosition: (!showOldVersion && item.imagePositionNew) ? item.imagePositionNew : item.imagePosition }}
+                    style={{ objectPosition: item.imagePosition }}
                   />
 
                   {/* Gradient Overlay */}

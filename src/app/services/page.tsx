@@ -6,7 +6,6 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { fadeInUp, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 type Service = {
   title: string
@@ -44,7 +43,7 @@ const services: Service[] = [
     description: 'Drawing from her experience as an educator, Tamara delivers powerful development experiences that strengthen staff mindset, reduce burnout, and help leaders cultivate confident, purpose-driven cultures where both students and educators thrive.',
     image: '/services/DSC09702.jpg',
     objectPosition: 'center 30%',
-    objectPositionNew: 'center 25%', // Adjusted crop per feedback
+    objectPositionNew: 'center 25%',
   },
   {
     title: 'Moderator / Host',
@@ -52,8 +51,8 @@ const services: Service[] = [
     description: 'Tamara creates seamless, engaging event experiences by guiding conversations with warmth and expertise—keeping audiences energized, discussions meaningful, and programming flowing with confidence and excellence.',
     image: '/services/DSC09842-Edit_FINAL.jpg',
     objectPosition: 'top',
-    objectPositionNew: 'center 20%', // Show more of image per feedback
-    objectFitNew: 'contain', // Smaller with white space around
+    objectPositionNew: 'center 20%',
+    objectFitNew: 'contain',
   },
   {
     title: 'Virtual Presentations',
@@ -64,20 +63,13 @@ const services: Service[] = [
 ]
 
 export default function ServicesPage() {
-  const { showOldVersion } = useVersion()
-
-  // OLD: py-16 for hero content, NEW: py-12 (reduced spacing between hero and services)
-  const heroContentPadding = showOldVersion ? 'py-16' : 'py-12'
-  // OLD: section-padding (py-20 md:py-28 lg:py-32), NEW: py-20 (consistent)
-  const sectionPadding = showOldVersion ? 'py-20 md:py-28 lg:py-32' : 'py-20'
-
   return (
     <>
       <Header />
       <main>
-        {/* Hero Section - UPDATED: Added image above, removed "SERVICES" label */}
+        {/* Hero Section - Added image above, removed "SERVICES" label */}
         <section className="relative bg-matte-black overflow-hidden">
-          {/* UPDATED: Hero image at top (below navbar) */}
+          {/* Hero image at top (below navbar) */}
           <div className="relative w-full h-[50vh] mt-20">
             <Image
               src="/services/Edit-6473.jpg"
@@ -90,14 +82,13 @@ export default function ServicesPage() {
           </div>
 
           {/* Content below image */}
-          <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${heroContentPadding}`}>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
               className="max-w-3xl"
             >
-              {/* REMOVED: "Services" label */}
               <motion.h1
                 variants={staggerItem}
                 className="font-playfair text-4xl sm:text-5xl md:text-6xl text-cream-white mb-6"
@@ -115,7 +106,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className={`${sectionPadding} bg-cream-white`}>
+        <section className="py-20 bg-cream-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-24">
               {services.map((service, index) => (
@@ -132,7 +123,7 @@ export default function ServicesPage() {
                   {/* Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className={`relative rounded-2xl overflow-hidden shadow-2xl group ${
-                      !showOldVersion && service.objectFitNew === 'contain'
+                      service.objectFitNew === 'contain'
                         ? 'aspect-[4/3] bg-cream-white flex items-center justify-center'
                         : 'aspect-[4/3]'
                     }`}>
@@ -141,12 +132,12 @@ export default function ServicesPage() {
                         alt={service.title}
                         fill
                         className={`transition-transform duration-500 group-hover:scale-105 ${
-                          !showOldVersion && service.objectFitNew === 'contain'
+                          service.objectFitNew === 'contain'
                             ? 'object-contain'
                             : 'object-cover'
                         }`}
                         style={{
-                          objectPosition: !showOldVersion && service.objectPositionNew
+                          objectPosition: service.objectPositionNew
                             ? service.objectPositionNew
                             : (service.objectPosition || 'center')
                         }}
@@ -161,7 +152,7 @@ export default function ServicesPage() {
                       <h2 className="font-playfair text-3xl md:text-4xl text-matte-black mb-2">
                         {service.title}
                       </h2>
-                      {/* UPDATED: Capitalized taglines */}
+                      {/* Capitalized taglines */}
                       <p className="text-gold font-medium tracking-wide">
                         {service.tagline}
                       </p>
@@ -179,7 +170,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA Section - UPDATED: Yellow heading, bold text, more space above */}
+        {/* CTA Section - Yellow heading, bold text, more space above */}
         <section className="py-24 md:py-32 bg-matte-black">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.div
@@ -188,33 +179,24 @@ export default function ServicesPage() {
               whileInView="visible"
               viewport={scrollTrigger}
             >
-              {/* UPDATED: Yellow color, line break, more space above */}
-              {showOldVersion ? (
-                <motion.h2
-                  variants={staggerItem}
-                  className="font-playfair text-3xl md:text-4xl text-gold mb-6 mt-8"
-                >
-                  Ready to Elevate Confidence, Purpose, and Outcomes?
-                </motion.h2>
-              ) : (
-                <motion.h2
-                  variants={staggerItem}
-                  className="font-playfair text-3xl md:text-4xl text-gold mb-6 mt-8"
-                >
-                  Ready to Elevate Confidence, Purpose,<br />
-                  and Outcomes?
-                </motion.h2>
-              )}
+              {/* Yellow color, line break, more space above */}
+              <motion.h2
+                variants={staggerItem}
+                className="font-playfair text-3xl md:text-4xl text-gold mb-6 mt-8"
+              >
+                Ready to Elevate Confidence, Purpose,<br />
+                and Outcomes?
+              </motion.h2>
               <motion.p
                 variants={staggerItem}
                 className="text-cream-white/80 text-lg mb-4 max-w-3xl mx-auto"
               >
                 Schools and organizations partner with Tamara because she delivers more than inspiration—she delivers transformation. By taking the time to understand your goals, culture, and audience, she creates tailored experiences with practical tools that empower students and leaders to rise beyond challenges, strengthen resilience, and step confidently onto their own runway for success.
               </motion.p>
-              {/* UPDATED: Bold text, yellow color, more space above */}
+              {/* Bold text, yellow color, more space above */}
               <motion.p
                 variants={staggerItem}
-                className={`text-gold text-lg mb-8 font-bold ${showOldVersion ? '' : 'mt-8'}`}
+                className="text-gold text-lg mb-8 font-bold mt-8"
               >
                 Let&apos;s explore how we can partner to create a meaningful and lasting impact together.
               </motion.p>
@@ -230,7 +212,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Tagline Banner - UPDATED: Separators with more spacing */}
+        {/* Tagline Banner - Separators with more spacing */}
         <section className="py-16 bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.p
@@ -240,11 +222,7 @@ export default function ServicesPage() {
               viewport={scrollTrigger}
               className="font-playfair text-xl sm:text-2xl md:text-3xl text-matte-black whitespace-nowrap"
             >
-              {showOldVersion ? (
-                <>Create Confidence • Cultivate Purpose • Change Outcomes.</>
-              ) : (
-                <>Create Confidence &nbsp; • &nbsp; Cultivate Purpose &nbsp; • &nbsp; Change Outcomes.</>
-              )}
+              Create Confidence &nbsp; • &nbsp; Cultivate Purpose &nbsp; • &nbsp; Change Outcomes.
             </motion.p>
           </div>
         </section>

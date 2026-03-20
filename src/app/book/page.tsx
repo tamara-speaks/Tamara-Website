@@ -7,7 +7,6 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { fadeInUp, fadeInLeft, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 const steps = [
   {
@@ -28,7 +27,6 @@ const steps = [
 ]
 
 export default function BookPage() {
-  const { showOldVersion } = useVersion()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -47,9 +45,6 @@ export default function BookPage() {
     howFound: '',
   })
 
-  // OLD: section-padding (py-20 md:py-28 lg:py-32), NEW: py-20 (consistent)
-  const sectionPadding = showOldVersion ? 'py-20 md:py-28 lg:py-32' : 'py-20'
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -65,22 +60,22 @@ export default function BookPage() {
     <>
       <Header />
       <main>
-        {/* UPDATED: Hero image at top */}
+        {/* Hero image at top */}
         <section className="relative bg-matte-black overflow-hidden">
-          <div className={`relative w-full mt-20 ${showOldVersion ? 'h-[50vh]' : 'h-[60vh]'}`}>
+          <div className="relative w-full mt-20 h-[60vh]">
             <Image
-              src={showOldVersion ? "/contact/Edit-8223.jpg" : "/contact/Edit-8238.jpg"}
+              src="/contact/Edit-8238.jpg"
               alt="Tamara Speaking"
               fill
               priority
-              className={`object-cover ${showOldVersion ? 'object-[center_25%]' : 'object-[center_20%]'}`}
+              className="object-cover object-[center_20%]"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-matte-black/30 via-transparent to-matte-black" />
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              {/* UPDATED: New image */}
+              {/* New image */}
               <motion.div
                 variants={fadeInLeft}
                 initial="hidden"
@@ -109,10 +104,10 @@ export default function BookPage() {
                 >
                   Let&apos;s Change Some Lives Together!
                 </motion.h1>
-                {/* UPDATED: Sans-serif, removed bold in NEW version */}
+                {/* Sans-serif, removed bold */}
                 <motion.h2
                   variants={staggerItem}
-                  className={`text-gold text-2xl md:text-3xl font-sans mb-6 ${showOldVersion ? 'font-bold' : 'font-medium'}`}
+                  className="text-gold text-2xl md:text-3xl font-sans mb-6 font-medium"
                 >
                   Schedule a Consultation Now!
                 </motion.h2>
@@ -122,27 +117,17 @@ export default function BookPage() {
                 >
                   This is the first step to getting your questions answered about bringing Tamara to your school or organization.
                 </motion.p>
-                {/* UPDATED: Changed "tour" to "experience", line breaks */}
-                {showOldVersion ? (
-                  <motion.p
-                    variants={staggerItem}
-                    className="text-cream-white/80 text-lg mb-8"
-                  >
-                    Book a complimentary consultation and learn how Tamara&apos;s <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower, and impact your audience.
-                  </motion.p>
-                ) : (
-                  <motion.p
-                    variants={staggerItem}
-                    className="text-cream-white/80 text-lg mb-10"
-                  >
-                    Book a complimentary consultation and learn how Tamara&apos;s<br />
-                    <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower,<br />
-                    and impact your audience.
-                  </motion.p>
-                )}
-                {/* REMOVED: "Prefer to start with details?" paragraph */}
-                {/* UPDATED: Added space above button */}
-                <motion.div variants={staggerItem} className={showOldVersion ? '' : 'mt-4'}>
+                {/* Changed "tour" to "experience", line breaks */}
+                <motion.p
+                  variants={staggerItem}
+                  className="text-cream-white/80 text-lg mb-10"
+                >
+                  Book a complimentary consultation and learn how Tamara&apos;s<br />
+                  <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower,<br />
+                  and impact your audience.
+                </motion.p>
+                {/* Added space above button */}
+                <motion.div variants={staggerItem} className="mt-4">
                   <Button
                     variant="primary"
                     onClick={() => {
@@ -160,8 +145,8 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* What to Expect Section - UPDATED: Removed button */}
-        <section className={`${sectionPadding} bg-cream-white`}>
+        {/* What to Expect Section - Removed button */}
+        <section className="py-20 bg-cream-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -203,12 +188,11 @@ export default function BookPage() {
                 </motion.div>
               ))}
             </div>
-            {/* REMOVED: "Step Into the Experience" button and text (moved to video section) */}
           </div>
         </section>
 
-        {/* Video Section - UPDATED: New title, yellow color, subtitle, new video */}
-        <section id="speaker-video" className={`${sectionPadding} bg-matte-black`}>
+        {/* Video Section - New title, yellow color, subtitle, new video */}
+        <section id="speaker-video" className="py-20 bg-matte-black">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeInUp}
@@ -217,19 +201,17 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="text-center mb-12"
             >
-              {/* UPDATED: Same size as "Experience the Impact" on home page */}
-              <h2 className={`font-playfair text-gold mb-4 ${
-                showOldVersion ? 'text-3xl md:text-4xl' : 'text-3xl sm:text-4xl md:text-5xl'
-              }`}>
+              {/* Same size as "Experience the Impact" on home page */}
+              <h2 className="font-playfair text-gold mb-4 text-3xl sm:text-4xl md:text-5xl">
                 Step Into the Experience
               </h2>
-              {/* UPDATED: Moved subtitle here */}
+              {/* Moved subtitle here */}
               <p className="text-cream-white/80 text-lg">
                 See what becomes possible when confidence meets purpose.
               </p>
             </motion.div>
 
-            {/* UPDATED: Vimeo embed for NEW version */}
+            {/* Vimeo embed */}
             <motion.div
               variants={fadeInUp}
               initial="hidden"
@@ -237,27 +219,18 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-gold/20"
             >
-              {showOldVersion ? (
-                <iframe
-                  src="https://www.youtube.com/embed/K0QOANwq7Yg"
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              ) : (
-                <iframe
-                  src="https://player.vimeo.com/video/1174757627?badge=0&autopause=0&player_id=0&app_id=58479"
-                  className="absolute inset-0 w-full h-full"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                  allowFullScreen
-                />
-              )}
+              <iframe
+                src="https://player.vimeo.com/video/1174757627?badge=0&autopause=0&player_id=0&app_id=58479"
+                className="absolute inset-0 w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                allowFullScreen
+              />
             </motion.div>
           </div>
         </section>
 
-        {/* Booking Form Section - UPDATED: Added intro text */}
-        <section id="booking-form" className={`${sectionPadding} bg-cream-white`}>
+        {/* Booking Form Section - Added intro text */}
+        <section id="booking-form" className="py-20 bg-cream-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -266,7 +239,7 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="text-center mb-12"
             >
-              {/* UPDATED: Added intro sentence */}
+              {/* Added intro sentence */}
               <motion.p
                 variants={staggerItem}
                 className="text-matte-black/70 text-lg mb-4"
@@ -543,7 +516,7 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* Final CTA - UPDATED: Separators with more spacing */}
+        {/* Final CTA - Separators with more spacing */}
         <section className="py-16 bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.p
@@ -553,11 +526,7 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="font-playfair text-xl sm:text-2xl md:text-3xl text-matte-black whitespace-nowrap"
             >
-              {showOldVersion ? (
-                <>Create Confidence • Cultivate Purpose • Change Outcomes.</>
-              ) : (
-                <>Create Confidence &nbsp; • &nbsp; Cultivate Purpose &nbsp; • &nbsp; Change Outcomes.</>
-              )}
+              Create Confidence &nbsp; • &nbsp; Cultivate Purpose &nbsp; • &nbsp; Change Outcomes.
             </motion.p>
           </div>
         </section>

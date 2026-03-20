@@ -4,11 +4,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import { staggerContainer, heroTextSlide } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 export default function Hero() {
-  const { showOldVersion } = useVersion()
-
   const scrollToReel = () => {
     const reelSection = document.getElementById('speaker-reel')
     if (reelSection) {
@@ -62,8 +59,8 @@ export default function Hero() {
             </span>
           </motion.h1>
 
-          {/* Spacer for button - OLD: small gap, NEW: moderate gap */}
-          <div className={showOldVersion ? 'h-8' : 'h-12 md:h-16'} />
+          {/* Spacer for button */}
+          <div className="h-12 md:h-16" />
 
           {/* CTA Button */}
           <motion.div
@@ -100,7 +97,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Runway High Heel */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         initial={{ opacity: 0, y: -20 }}
@@ -108,11 +105,47 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 0.5 }}
       >
         <motion.div
-          className="w-6 h-10 border-2 border-cream-white/50 rounded-full flex justify-center"
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
+          className="flex flex-col items-center"
         >
-          <motion.div className="w-1.5 h-3 bg-gold rounded-full mt-2" />
+          {/* Stiletto High Heel SVG */}
+          <svg
+            width="32"
+            height="48"
+            viewBox="0 0 32 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-gold"
+          >
+            {/* Heel shoe silhouette */}
+            <path
+              d="M8 4C8 4 10 6 14 8C18 10 24 12 26 16C28 20 28 24 26 28C24 32 20 34 18 36L18 44L14 44L14 36C14 36 8 32 6 28C4 24 4 20 6 16C6 16 6 12 8 8C8 8 8 6 8 4Z"
+              fill="currentColor"
+              fillOpacity="0.9"
+            />
+            {/* Stiletto heel */}
+            <path
+              d="M18 36L20 44L18 44L18 36Z"
+              fill="currentColor"
+            />
+            {/* Sole accent */}
+            <path
+              d="M14 44L20 44L20 46L14 46L14 44Z"
+              fill="currentColor"
+              fillOpacity="0.7"
+            />
+          </svg>
+          {/* Subtle down arrow beneath */}
+          <motion.div
+            className="mt-1"
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          >
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-cream-white/50" />
+            </svg>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>

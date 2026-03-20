@@ -3,21 +3,10 @@
 import { motion } from 'framer-motion'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
 import Button from '@/components/ui/Button'
-import { useVersion } from '@/context/VersionContext'
 
 export default function Introduction() {
-  const { showOldVersion } = useVersion()
-
-  // OLD: section-padding (py-20 md:py-28 lg:py-32), NEW: py-20 (consistent)
-  const sectionPadding = showOldVersion ? 'py-20 md:py-28 lg:py-32' : 'py-20'
-
-  // OLD: bigger title, NEW: same size as Award Winning Speaker
-  const titleSize = showOldVersion
-    ? 'text-4xl sm:text-5xl md:text-6xl'
-    : 'text-3xl sm:text-4xl md:text-5xl'
-
   return (
-    <section id="about" className={`${sectionPadding} bg-cream-white`}>
+    <section id="about" className="py-20 bg-cream-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center"
@@ -41,9 +30,9 @@ export default function Introduction() {
             <div className="h-px w-12 bg-matte-black" />
           </motion.div>
 
-          {/* Title - OLD: bigger, NEW: same size as Award Winning Speaker */}
+          {/* Title */}
           <motion.h2
-            className={`font-playfair ${titleSize} text-gold mb-2`}
+            className="font-playfair text-3xl sm:text-4xl md:text-5xl text-gold mb-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}

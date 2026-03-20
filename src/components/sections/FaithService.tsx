@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 const slides = [
   '/landing/south-africa-slideshow/1-South Africa_36278655996_454f6731b6_k.jpg',
@@ -34,10 +33,6 @@ export default function FaithService() {
   const [isPaused, setIsPaused] = useState(false)
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0, 1]))
   const thumbnailRef = useRef<HTMLDivElement>(null)
-  const { showOldVersion } = useVersion()
-
-  // OLD: py-24, NEW: pt-12 pb-20 (reduced top padding to close gap with Testimonials)
-  const sectionPadding = showOldVersion ? 'py-24' : 'pt-12 pb-20'
 
   const imagesToLoad = useMemo(() => {
     const indices = new Set<number>()
@@ -89,7 +84,7 @@ export default function FaithService() {
   }, [isPaused, nextSlide])
 
   return (
-    <section className={`${sectionPadding} bg-matte-black overflow-hidden`}>
+    <section className="pt-12 pb-20 bg-matte-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -107,20 +102,13 @@ export default function FaithService() {
             <div className="h-px w-12 bg-gold" />
           </div>
 
-          {showOldVersion ? (
-            <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl text-cream-white mb-4 max-w-4xl mx-auto leading-relaxed">
-              Rooted in her faith as an ordained minister, Tamara&apos;s heart for service has propelled her mission to uplift{' '}
-              <span className="text-gold">underserved communities</span>—at home and around the world.
-            </h2>
-          ) : (
-            <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl text-cream-white mb-8 max-w-4xl mx-auto leading-relaxed">
-              <span className="block">Rooted in her faith as an ordained minister,</span>
-              <span className="block">Tamara&apos;s heart for service has propelled her mission</span>
-              <span className="block">to uplift <span className="text-gold">underserved communities</span>—at home and</span>
-              <span className="block">around the world.</span>
-            </h2>
-          )}
-          <p className={`text-cream-white/60 text-lg ${showOldVersion ? '' : 'mt-8'}`}>
+          <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl text-cream-white mb-8 max-w-4xl mx-auto leading-relaxed">
+            <span className="block">Rooted in her faith as an ordained minister,</span>
+            <span className="block">Tamara&apos;s heart for service has propelled her mission</span>
+            <span className="block">to uplift <span className="text-gold">underserved communities</span>—at home and</span>
+            <span className="block">around the world.</span>
+          </h2>
+          <p className="text-cream-white/60 text-lg mt-8">
             South Africa Mission Trip
           </p>
         </motion.div>

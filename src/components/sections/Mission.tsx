@@ -2,16 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 export default function Mission() {
-  const { showOldVersion } = useVersion()
-
-  // OLD: py-24, NEW: py-20 (consistent)
-  const sectionPadding = showOldVersion ? 'py-24' : 'py-20'
-
   return (
-    <section id="mission" className={`${sectionPadding} bg-cream-white`}>
+    <section id="mission" className="py-20 bg-cream-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center"
@@ -73,27 +67,15 @@ export default function Mission() {
             <ul className="space-y-4 text-left max-w-md mx-auto">
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                {showOldVersion ? (
-                  <>Recognize Their <span className="font-bold text-[#B8860B]">Worth</span></>
-                ) : (
-                  <>Recognize Their <span className="font-bold">Worth</span></>
-                )}
+                Recognize Their <span className="font-bold">Worth</span>
               </li>
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                {showOldVersion ? (
-                  <>Build Unshakable <span className="font-bold text-[#B8860B]">Confidence</span></>
-                ) : (
-                  <>Build Unshakable <span className="font-bold">Confidence</span></>
-                )}
+                Build Unshakable <span className="font-bold">Confidence</span>
               </li>
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                {showOldVersion ? (
-                  <>Create Their Own Runway for <span className="font-bold text-[#B8860B]">Success</span></>
-                ) : (
-                  <>Create Their Own Runway for <span className="font-bold">Success</span></>
-                )}
+                Create Their Own Runway for <span className="font-bold">Success</span>
               </li>
             </ul>
           </motion.div>

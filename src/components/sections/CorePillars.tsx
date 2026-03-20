@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { fadeInLeft, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
-import { useVersion } from '@/context/VersionContext'
 
 const pillars = [
   {
@@ -24,13 +23,8 @@ const pillars = [
 ]
 
 export default function CorePillars() {
-  const { showOldVersion } = useVersion()
-
-  // OLD: section-padding (py-20 md:py-28 lg:py-32), NEW: py-20 (consistent)
-  const sectionPadding = showOldVersion ? 'py-20 md:py-28 lg:py-32' : 'py-20'
-
   return (
-    <section className={`${sectionPadding} bg-cream-white`}>
+    <section className="py-20 bg-cream-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -77,7 +71,7 @@ export default function CorePillars() {
                 src="/services/DSC09846-Edit_FINAL.jpg"
                 alt="Tamara Figueroa-Guzman"
                 fill
-                className={`object-cover ${showOldVersion ? 'object-[center_20%]' : 'object-[center_35%]'}`}
+                className="object-cover object-[center_35%]"
               />
               {/* Gold accent border */}
               <div className="absolute inset-0 border-2 border-gold/20 rounded-2xl" />
