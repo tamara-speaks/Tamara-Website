@@ -66,12 +66,13 @@ export default function CorePillars() {
             whileInView="visible"
             viewport={scrollTrigger}
           >
-            <div className="relative aspect-[3/5] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[5/8] max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/services/DSC09846-Edit_FINAL.jpg"
                 alt="Tamara Figueroa-Guzman"
                 fill
-                className="object-cover object-[center_35%]"
+                className="object-cover"
+                style={{ objectPosition: 'center 0%' }}
               />
               {/* Gold accent border */}
               <div className="absolute inset-0 border-2 border-gold/20 rounded-2xl" />
