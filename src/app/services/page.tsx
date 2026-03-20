@@ -6,8 +6,19 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { fadeInUp, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
+import { useVersion } from '@/context/VersionContext'
 
-const services = [
+type Service = {
+  title: string
+  tagline: string
+  description: string
+  image: string
+  objectPosition?: string
+  objectPositionNew?: string
+  objectFitNew?: string
+}
+
+const services: Service[] = [
   {
     title: 'Keynote Speaking',
     tagline: 'INSPIRING • TRANSFORMATIONAL • IMPACTFUL',
@@ -32,6 +43,8 @@ const services = [
     tagline: 'RESTORATIVE • INSIGHTFUL • RESULTS-DRIVEN',
     description: 'Drawing from her experience as an educator, Tamara delivers powerful development experiences that strengthen staff mindset, reduce burnout, and help leaders cultivate confident, purpose-driven cultures where both students and educators thrive.',
     image: '/services/DSC09702.jpg',
+    objectPosition: 'center 30%',
+    objectPositionNew: 'center 25%', // Adjusted crop per feedback
   },
   {
     title: 'Moderator / Host',
@@ -39,6 +52,8 @@ const services = [
     description: 'Tamara creates seamless, engaging event experiences by guiding conversations with warmth and expertise—keeping audiences energized, discussions meaningful, and programming flowing with confidence and excellence.',
     image: '/services/DSC09842-Edit_FINAL.jpg',
     objectPosition: 'top',
+    objectPositionNew: 'center 20%', // Show more of image per feedback
+    objectFitNew: 'contain', // Smaller with white space around
   },
   {
     title: 'Virtual Presentations',
@@ -49,6 +64,13 @@ const services = [
 ]
 
 export default function ServicesPage() {
+  const { showOldVersion } = useVersion()
+
+  // OLD: py-16 for hero content, NEW: py-12 (reduced spacing between hero and services)
+  const heroContentPadding = showOldVersion ? 'py-16' : 'py-12'
+  // OLD: section-padding (py-20 md:py-28 lg:py-32), NEW: py-20 (consistent)
+  const sectionPadding = showOldVersion ? 'py-20 md:py-28 lg:py-32' : 'py-20'
+
   return (
     <>
       <Header />
@@ -68,7 +90,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Content below image */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className={`relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${heroContentPadding}`}>
             <motion.div
               variants={staggerContainer}
               initial="hidden"
@@ -93,7 +115,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="section-padding bg-cream-white">
+        <section className={`${sectionPadding} bg-cream-white`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="space-y-24">
               {services.map((service, index) => (
@@ -109,13 +131,25 @@ export default function ServicesPage() {
                 >
                   {/* Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group">
+                    <div className={`relative rounded-2xl overflow-hidden shadow-2xl group ${
+                      !showOldVersion && service.objectFitNew === 'contain'
+                        ? 'aspect-[4/3] bg-cream-white flex items-center justify-center'
+                        : 'aspect-[4/3]'
+                    }`}>
                       <Image
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        style={{ objectPosition: service.objectPosition || 'center' }}
+                        className={`transition-transform duration-500 group-hover:scale-105 ${
+                          !showOldVersion && service.objectFitNew === 'contain'
+                            ? 'object-contain'
+                            : 'object-cover'
+                        }`}
+                        style={{
+                          objectPosition: !showOldVersion && service.objectPositionNew
+                            ? service.objectPositionNew
+                            : (service.objectPosition || 'center')
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-matte-black/60 via-transparent to-transparent" />
                     </div>
@@ -154,23 +188,33 @@ export default function ServicesPage() {
               whileInView="visible"
               viewport={scrollTrigger}
             >
-              {/* UPDATED: Yellow color, more space above */}
-              <motion.h2
-                variants={staggerItem}
-                className="font-playfair text-3xl md:text-4xl text-gold mb-6 mt-8"
-              >
-                Ready to Elevate Confidence, Purpose, and Outcomes?
-              </motion.h2>
+              {/* UPDATED: Yellow color, line break, more space above */}
+              {showOldVersion ? (
+                <motion.h2
+                  variants={staggerItem}
+                  className="font-playfair text-3xl md:text-4xl text-gold mb-6 mt-8"
+                >
+                  Ready to Elevate Confidence, Purpose, and Outcomes?
+                </motion.h2>
+              ) : (
+                <motion.h2
+                  variants={staggerItem}
+                  className="font-playfair text-3xl md:text-4xl text-gold mb-6 mt-8"
+                >
+                  Ready to Elevate Confidence, Purpose,<br />
+                  and Outcomes?
+                </motion.h2>
+              )}
               <motion.p
                 variants={staggerItem}
                 className="text-cream-white/80 text-lg mb-4 max-w-3xl mx-auto"
               >
                 Schools and organizations partner with Tamara because she delivers more than inspiration—she delivers transformation. By taking the time to understand your goals, culture, and audience, she creates tailored experiences with practical tools that empower students and leaders to rise beyond challenges, strengthen resilience, and step confidently onto their own runway for success.
               </motion.p>
-              {/* UPDATED: Bold text, yellow color */}
+              {/* UPDATED: Bold text, yellow color, more space above */}
               <motion.p
                 variants={staggerItem}
-                className="text-gold text-lg mb-8 font-bold"
+                className={`text-gold text-lg mb-8 font-bold ${showOldVersion ? '' : 'mt-8'}`}
               >
                 Let&apos;s explore how we can partner to create a meaningful and lasting impact together.
               </motion.p>
@@ -186,7 +230,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Tagline Banner - UPDATED: Separators instead of periods */}
+        {/* Tagline Banner - UPDATED: Separators with more spacing */}
         <section className="py-16 bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.p
@@ -194,9 +238,13 @@ export default function ServicesPage() {
               initial="hidden"
               whileInView="visible"
               viewport={scrollTrigger}
-              className="font-playfair text-2xl md:text-3xl text-matte-black"
+              className="font-playfair text-xl sm:text-2xl md:text-3xl text-matte-black whitespace-nowrap"
             >
-              Create Confidence • Cultivate Purpose • Change Outcomes.
+              {showOldVersion ? (
+                <>Create Confidence • Cultivate Purpose • Change Outcomes.</>
+              ) : (
+                <>Create Confidence &nbsp; • &nbsp; Cultivate Purpose &nbsp; • &nbsp; Change Outcomes.</>
+              )}
             </motion.p>
           </div>
         </section>

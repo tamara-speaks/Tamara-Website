@@ -10,6 +10,7 @@ import Awards from '@/components/sections/Awards'
 import Mission from '@/components/sections/Mission'
 import Testimonials from '@/components/sections/Testimonials'
 import FaithService from '@/components/sections/FaithService'
+import ConsultationCTA from '@/components/sections/ConsultationCTA'
 
 export default function Home() {
   return (
@@ -45,6 +46,9 @@ export default function Home() {
 
         {/* 10. Faith & Service - South Africa Slideshow */}
         <FaithService />
+
+        {/* 11. Consultation CTA (NEW version only) */}
+        <ConsultationCTA />
       </main>
       <Footer />
     </>

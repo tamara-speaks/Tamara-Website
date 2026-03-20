@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { fadeInUp, fadeInLeft, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
+import { useVersion } from '@/context/VersionContext'
 
 const steps = [
   {
@@ -27,6 +28,7 @@ const steps = [
 ]
 
 export default function BookPage() {
+  const { showOldVersion } = useVersion()
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -45,6 +47,9 @@ export default function BookPage() {
     howFound: '',
   })
 
+  // OLD: section-padding (py-20 md:py-28 lg:py-32), NEW: py-20 (consistent)
+  const sectionPadding = showOldVersion ? 'py-20 md:py-28 lg:py-32' : 'py-20'
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -62,13 +67,13 @@ export default function BookPage() {
       <main>
         {/* UPDATED: Hero image at top */}
         <section className="relative bg-matte-black overflow-hidden">
-          <div className="relative w-full h-[50vh] mt-20">
+          <div className={`relative w-full mt-20 ${showOldVersion ? 'h-[50vh]' : 'h-[60vh]'}`}>
             <Image
-              src="/contact/Edit-8223.jpg"
+              src={showOldVersion ? "/contact/Edit-8223.jpg" : "/contact/Edit-8238.jpg"}
               alt="Tamara Speaking"
               fill
               priority
-              className="object-cover object-[center_25%]"
+              className={`object-cover ${showOldVersion ? 'object-[center_25%]' : 'object-[center_20%]'}`}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-matte-black/30 via-transparent to-matte-black" />
           </div>
@@ -104,10 +109,10 @@ export default function BookPage() {
                 >
                   Let&apos;s Change Some Lives Together!
                 </motion.h1>
-                {/* UPDATED: Sans-serif */}
+                {/* UPDATED: Sans-serif, removed bold in NEW version */}
                 <motion.h2
                   variants={staggerItem}
-                  className="text-gold text-2xl md:text-3xl font-sans font-bold mb-6"
+                  className={`text-gold text-2xl md:text-3xl font-sans mb-6 ${showOldVersion ? 'font-bold' : 'font-medium'}`}
                 >
                   Schedule a Consultation Now!
                 </motion.h2>
@@ -117,15 +122,27 @@ export default function BookPage() {
                 >
                   This is the first step to getting your questions answered about bringing Tamara to your school or organization.
                 </motion.p>
-                {/* UPDATED: Changed "tour" to "experience" */}
-                <motion.p
-                  variants={staggerItem}
-                  className="text-cream-white/80 text-lg mb-8"
-                >
-                  Book a complimentary consultation and learn how Tamara&apos;s <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower, and impact your audience.
-                </motion.p>
+                {/* UPDATED: Changed "tour" to "experience", line breaks */}
+                {showOldVersion ? (
+                  <motion.p
+                    variants={staggerItem}
+                    className="text-cream-white/80 text-lg mb-8"
+                  >
+                    Book a complimentary consultation and learn how Tamara&apos;s <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower, and impact your audience.
+                  </motion.p>
+                ) : (
+                  <motion.p
+                    variants={staggerItem}
+                    className="text-cream-white/80 text-lg mb-10"
+                  >
+                    Book a complimentary consultation and learn how Tamara&apos;s<br />
+                    <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower,<br />
+                    and impact your audience.
+                  </motion.p>
+                )}
                 {/* REMOVED: "Prefer to start with details?" paragraph */}
-                <motion.div variants={staggerItem}>
+                {/* UPDATED: Added space above button */}
+                <motion.div variants={staggerItem} className={showOldVersion ? '' : 'mt-4'}>
                   <Button
                     variant="primary"
                     onClick={() => {
@@ -144,7 +161,7 @@ export default function BookPage() {
         </section>
 
         {/* What to Expect Section - UPDATED: Removed button */}
-        <section className="section-padding bg-cream-white">
+        <section className={`${sectionPadding} bg-cream-white`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -191,7 +208,7 @@ export default function BookPage() {
         </section>
 
         {/* Video Section - UPDATED: New title, yellow color, subtitle, new video */}
-        <section id="speaker-video" className="section-padding bg-matte-black">
+        <section id="speaker-video" className={`${sectionPadding} bg-matte-black`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={fadeInUp}
@@ -200,8 +217,10 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="text-center mb-12"
             >
-              {/* UPDATED: Yellow title */}
-              <h2 className="font-playfair text-3xl md:text-4xl text-gold mb-4">
+              {/* UPDATED: Same size as "Experience the Impact" on home page */}
+              <h2 className={`font-playfair text-gold mb-4 ${
+                showOldVersion ? 'text-3xl md:text-4xl' : 'text-3xl sm:text-4xl md:text-5xl'
+              }`}>
                 Step Into the Experience
               </h2>
               {/* UPDATED: Moved subtitle here */}
@@ -210,7 +229,7 @@ export default function BookPage() {
               </p>
             </motion.div>
 
-            {/* UPDATED: Using YouTube embed instead of local video file */}
+            {/* UPDATED: Vimeo embed for NEW version */}
             <motion.div
               variants={fadeInUp}
               initial="hidden"
@@ -218,18 +237,27 @@ export default function BookPage() {
               viewport={scrollTrigger}
               className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-gold/20"
             >
-              <iframe
-                src="https://www.youtube.com/embed/K0QOANwq7Yg"
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              {showOldVersion ? (
+                <iframe
+                  src="https://www.youtube.com/embed/K0QOANwq7Yg"
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <iframe
+                  src="https://player.vimeo.com/video/1174757627?badge=0&autopause=0&player_id=0&app_id=58479"
+                  className="absolute inset-0 w-full h-full"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                  allowFullScreen
+                />
+              )}
             </motion.div>
           </div>
         </section>
 
         {/* Booking Form Section - UPDATED: Added intro text */}
-        <section id="booking-form" className="section-padding bg-cream-white">
+        <section id="booking-form" className={`${sectionPadding} bg-cream-white`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               variants={staggerContainer}
@@ -515,7 +543,7 @@ export default function BookPage() {
           </div>
         </section>
 
-        {/* Final CTA - UPDATED: Separators instead of periods */}
+        {/* Final CTA - UPDATED: Separators with more spacing */}
         <section className="py-16 bg-gold">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.p
@@ -523,9 +551,13 @@ export default function BookPage() {
               initial="hidden"
               whileInView="visible"
               viewport={scrollTrigger}
-              className="font-playfair text-2xl md:text-3xl text-matte-black"
+              className="font-playfair text-xl sm:text-2xl md:text-3xl text-matte-black whitespace-nowrap"
             >
-              Create Confidence • Cultivate Purpose • Change Outcomes.
+              {showOldVersion ? (
+                <>Create Confidence • Cultivate Purpose • Change Outcomes.</>
+              ) : (
+                <>Create Confidence &nbsp; • &nbsp; Cultivate Purpose &nbsp; • &nbsp; Change Outcomes.</>
+              )}
             </motion.p>
           </div>
         </section>

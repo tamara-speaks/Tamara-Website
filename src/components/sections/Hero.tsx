@@ -4,8 +4,11 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import { staggerContainer, heroTextSlide } from '@/lib/animations'
+import { useVersion } from '@/context/VersionContext'
 
 export default function Hero() {
+  const { showOldVersion } = useVersion()
+
   const scrollToReel = () => {
     const reelSection = document.getElementById('speaker-reel')
     if (reelSection) {
@@ -50,7 +53,7 @@ export default function Hero() {
 
           {/* Main Headline */}
           <motion.h1
-            className="font-sans text-lg sm:text-xl md:text-2xl text-cream-white/70 leading-[1.4] mb-12 tracking-wider"
+            className="font-sans text-lg sm:text-xl md:text-2xl text-cream-white/70 leading-[1.4] tracking-wider"
             variants={heroTextSlide}
           >
             AIM FOR THE TOP BECAUSE
@@ -59,9 +62,12 @@ export default function Hero() {
             </span>
           </motion.h1>
 
+          {/* Spacer for button - OLD: small gap, NEW: moderate gap */}
+          <div className={showOldVersion ? 'h-8' : 'h-12 md:h-16'} />
+
           {/* CTA Button */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 mt-8"
+            className="flex flex-col sm:flex-row gap-4"
             variants={heroTextSlide}
           >
             <Button

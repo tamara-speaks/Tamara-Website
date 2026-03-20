@@ -22,7 +22,7 @@ const awards = [
   },
   {
     src: '/landing/Awards/4_AWARD_Fabiola Venue-2024.jpg',
-    title: 'Award of Excellence',
+    title: 'Speaker & Educator Award',
     subtitle: "Fabiola's Venue",
   },
 ]
