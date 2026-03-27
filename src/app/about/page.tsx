@@ -7,6 +7,18 @@ import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
 
+const roles = [
+  'Ordained Minister',
+  'First-Generation College Graduate',
+  'Brooklyn Native',
+  'Afro-Latina Voice',
+  'Former Runway Model',
+  'Motivational Speaker',
+  'Educator',
+  'Student Success Advocate',
+  'Purpose Strategist',
+]
+
 export default function AboutPage() {
   return (
     <>
@@ -36,17 +48,7 @@ export default function AboutPage() {
                 <div className="roles-marquee">
                   {[...Array(4)].map((_, setIndex) => (
                     <div key={setIndex} className="flex items-center">
-                      {[
-                        'Motivational Speaker',
-                        'Educator',
-                        'Student Success Advocate',
-                        'Purpose Strategist',
-                        'Ordained Minister',
-                        'First-Generation College Graduate',
-                        'Brooklyn Native',
-                        'Afro-Latina Voice',
-                        'Former Runway Model',
-                      ].map((role, idx) => (
+                      {roles.map((role, idx) => (
                         <span key={`${setIndex}-${idx}`} className="flex items-center text-cream-white/70 text-lg md:text-xl whitespace-nowrap">
                           {role}
                           <span className="mx-4 text-gold">•</span>
@@ -416,16 +418,16 @@ export default function AboutPage() {
               >
                 Let&apos;s partner to create an experience that empowers your community and drives lasting impact.
               </motion.p>
-              {/* Added more line space before this */}
+              {/* Bold text with more spacing */}
               <motion.p
                 variants={staggerItem}
-                className="text-matte-black/80 text-lg max-w-2xl mx-auto mt-6 mb-8"
+                className="text-matte-black/80 text-lg max-w-2xl mx-auto mb-8 mt-8 font-bold"
               >
                 The next breakthrough starts with a conversation.
               </motion.p>
               {/* New button label */}
               <motion.div variants={staggerItem}>
-                <Button variant="white" href="/book">
+                <Button variant="white" href="/contact">
                   Schedule Your Call Today
                 </Button>
               </motion.div>

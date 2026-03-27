@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
 
 const VIMEO_VIDEO_ID = '1174560062'
-const THUMBNAIL = '/landing/tamarathumbnail.png'
+const THUMBNAIL = '/landing/thumbnail.png'
 
 export default function SpeakerReel() {
   const [isPlaying, setIsPlaying] = useState(false)

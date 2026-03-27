@@ -76,7 +76,7 @@ export default function Header() {
             {/* Book CTA */}
             <div className="hidden md:block">
               <Link
-                href="/book"
+                href="/contact"
                 className="btn-primary text-sm"
               >
                 BOOK TAMARA
@@ -158,7 +158,7 @@ export default function Header() {
                 transition={{ delay: navLinks.length * 0.1 }}
               >
                 <Link
-                  href="/book"
+                  href="/contact"
                   className="btn-primary mt-4"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

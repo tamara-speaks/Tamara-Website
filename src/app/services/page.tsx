@@ -13,8 +13,8 @@ type Service = {
   description: string
   image: string
   objectPosition?: string
-  objectPositionNew?: string
-  objectFitNew?: string
+  objectFit?: string
+  scale?: number
 }
 
 const services: Service[] = [
@@ -42,17 +42,16 @@ const services: Service[] = [
     tagline: 'RESTORATIVE • INSIGHTFUL • RESULTS-DRIVEN',
     description: 'Drawing from her experience as an educator, Tamara delivers powerful development experiences that strengthen staff mindset, reduce burnout, and help leaders cultivate confident, purpose-driven cultures where both students and educators thrive.',
     image: '/services/DSC09702.jpg',
-    objectPosition: 'center 30%',
-    objectPositionNew: 'center 25%',
+    objectPosition: '70% center',
+    scale: 1.4,
   },
   {
     title: 'Moderator / Host',
     tagline: 'POLISHED • ENGAGING • PROFESSIONAL',
     description: 'Tamara creates seamless, engaging event experiences by guiding conversations with warmth and expertise—keeping audiences energized, discussions meaningful, and programming flowing with confidence and excellence.',
     image: '/services/DSC09842-Edit_FINAL.jpg',
-    objectPosition: 'top',
-    objectPositionNew: 'center 20%',
-    objectFitNew: 'contain',
+    objectPosition: 'center 20%',
+    objectFit: 'contain',
   },
   {
     title: 'Virtual Presentations',
@@ -70,7 +69,7 @@ export default function ServicesPage() {
         {/* Hero Section - Added image above, removed "SERVICES" label */}
         <section className="relative bg-matte-black overflow-hidden">
           {/* Hero image at top (below navbar) */}
-          <div className="relative w-full h-[50vh] mt-20">
+          <div className="relative w-full pt-20 h-[70vh]">
             <Image
               src="/services/Edit-6473.jpg"
               alt="Tamara Speaking"
@@ -123,7 +122,7 @@ export default function ServicesPage() {
                   {/* Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className={`relative rounded-2xl overflow-hidden shadow-2xl group ${
-                      service.objectFitNew === 'contain'
+                      service.objectFit === 'contain'
                         ? 'aspect-[4/3] bg-cream-white flex items-center justify-center'
                         : 'aspect-[4/3]'
                     }`}>
@@ -132,14 +131,14 @@ export default function ServicesPage() {
                         alt={service.title}
                         fill
                         className={`transition-transform duration-500 group-hover:scale-105 ${
-                          service.objectFitNew === 'contain'
+                          service.objectFit === 'contain'
                             ? 'object-contain'
                             : 'object-cover'
                         }`}
                         style={{
-                          objectPosition: service.objectPositionNew
-                            ? service.objectPositionNew
-                            : (service.objectPosition || 'center')
+                          objectPosition: service.objectPosition || 'center',
+                          transform: service.scale ? `scale(${service.scale})` : undefined,
+                          transformOrigin: service.scale ? '70% center' : undefined
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-matte-black/60 via-transparent to-transparent" />
@@ -160,7 +159,7 @@ export default function ServicesPage() {
                     <p className="text-matte-black/80 text-lg leading-relaxed">
                       {service.description}
                     </p>
-                    <Button variant="secondary" href="/book" className="text-matte-black border-matte-black hover:bg-matte-black hover:text-cream-white">
+                    <Button variant="secondary" href="/contact" className="text-matte-black border-matte-black hover:bg-matte-black hover:text-cream-white">
                       Learn More
                     </Button>
                   </div>
@@ -201,7 +200,7 @@ export default function ServicesPage() {
                 Let&apos;s explore how we can partner to create a meaningful and lasting impact together.
               </motion.p>
               <motion.div variants={staggerItem} className="space-y-4">
-                <Button variant="primary" href="/book">
+                <Button variant="primary" href="/contact">
                   Schedule a Consultation
                 </Button>
                 <p className="text-cream-white/60 text-sm">

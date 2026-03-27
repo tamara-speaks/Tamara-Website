@@ -14,9 +14,9 @@ export default function ConsultationCTA() {
           whileInView="visible"
           viewport={scrollTrigger}
         >
-          {/* Main Headline - Same size as "What People Are Saying" */}
+          {/* Main Headline - Smaller to fit on one line */}
           <motion.h2
-            className="font-playfair text-3xl sm:text-4xl md:text-5xl text-matte-black mb-8"
+            className="font-playfair text-matte-black mb-8 whitespace-nowrap text-lg sm:text-2xl md:text-3xl lg:text-4xl"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -34,7 +34,7 @@ export default function ConsultationCTA() {
             viewport={{ once: true }}
           >
             <a
-              href="/book"
+              href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-matte-black text-cream-white font-semibold rounded-full hover:bg-matte-black/80 transition-all duration-300 shadow-lg"
             >
               Schedule a Consultation

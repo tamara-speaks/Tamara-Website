@@ -10,6 +10,7 @@ interface ButtonProps {
   onClick?: () => void
   className?: string
   type?: 'button' | 'submit'
+  disabled?: boolean
 }
 
 export default function Button({
@@ -19,6 +20,7 @@ export default function Button({
   onClick,
   className = '',
   type = 'button',
+  disabled = false,
 }: ButtonProps) {
   const baseStyles = 'inline-flex items-center justify-center px-8 py-4 font-semibold rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2'
 
@@ -55,9 +57,10 @@ export default function Button({
     <motion.button
       type={type}
       onClick={onClick}
-      className={`${baseStyles} ${variants[variant]} ${className}`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
+      disabled={disabled}
+      className={`${baseStyles} ${variants[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+      whileHover={disabled ? {} : { scale: 1.05 }}
+      whileTap={disabled ? {} : { scale: 0.98 }}
     >
       {buttonContent}
     </motion.button>
