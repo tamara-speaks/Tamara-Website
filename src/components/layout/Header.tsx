@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -20,6 +21,12 @@ interface HeaderProps {
 export default function Header({ variant = 'default' }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,10 +76,14 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-cream-white font-medium hover:text-gold transition-colors relative group"
+                  className={`font-medium transition-colors relative group ${
+                    isActive(link.href) ? 'text-gold' : 'text-cream-white hover:text-gold'
+                  }`}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold-gradient transition-all duration-300 group-hover:w-full" />
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-gold-gradient transition-all duration-300 ${
+                    isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`} />
                 </Link>
               ))}
             </div>
@@ -147,10 +158,15 @@ export default function Header({ variant = 'default' }: HeaderProps) {
                 >
                   <Link
                     href={link.href}
-                    className="text-cream-white text-3xl font-playfair hover:text-gold transition-colors"
+                    className={`text-3xl font-playfair transition-colors ${
+                      isActive(link.href) ? 'text-gold' : 'text-cream-white hover:text-gold'
+                    }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
+                    {isActive(link.href) && (
+                      <span className="block h-0.5 w-full bg-gold-gradient mt-1" />
+                    )}
                   </Link>
                 </motion.div>
               ))}
