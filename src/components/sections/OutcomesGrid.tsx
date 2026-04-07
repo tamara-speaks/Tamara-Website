@@ -154,7 +154,7 @@ export default function OutcomesGrid() {
 
               {/* Card */}
               <div
-                className="group relative aspect-[3/4] rounded-2xl overflow-hidden cursor-pointer transform transition-all duration-500"
+                className="group relative aspect-[3/4] rounded-2xl overflow-hidden cursor-star transform transition-all duration-500"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: activeCard === index ? 'scale(1.02)' : 'scale(1)',

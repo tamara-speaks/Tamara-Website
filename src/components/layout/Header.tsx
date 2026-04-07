@@ -13,7 +13,11 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ]
 
-export default function Header() {
+interface HeaderProps {
+  variant?: 'default' | 'dark'
+}
+
+export default function Header({ variant = 'default' }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -38,7 +42,7 @@ export default function Header() {
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? 'glass py-2' : 'bg-transparent py-5'
+          isScrolled ? 'glass py-2' : variant === 'dark' ? 'bg-matte-black py-5' : 'bg-transparent py-5'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}

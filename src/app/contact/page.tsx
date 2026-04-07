@@ -123,7 +123,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Header />
+      <Header variant="dark" />
       <main>
         {/* Hero image at top */}
         <section className="relative bg-matte-black overflow-hidden">
@@ -133,7 +133,7 @@ export default function ContactPage() {
               alt="Tamara Speaking"
               fill
               priority
-              className="object-cover object-[center_60%]"
+              className="object-cover object-[center_45%]"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-matte-black/30 via-transparent to-matte-black" />
 
@@ -232,17 +232,15 @@ export default function ContactPage() {
                   Book a complimentary consultation and learn how Tamara&apos;s <span className="text-gold font-semibold">Create Your Own Runway</span> experience can inspire, empower, and impact your audience.
                 </motion.p>
                 <motion.div variants={staggerItem} className="mt-8">
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      const formSection = document.getElementById('booking-form')
-                      if (formSection) {
-                        formSection.scrollIntoView({ behavior: 'smooth' })
-                      }
-                    }}
+                  <a
+                    href="https://meetings-na2.hubspot.com/tamara-figueroa-guzman"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Schedule Now
-                  </Button>
+                    <Button variant="primary">
+                      SCHEDULE NOW
+                    </Button>
+                  </a>
                 </motion.div>
               </motion.div>
             </div>

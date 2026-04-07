@@ -18,6 +18,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'Tamara Figueroa-Guzman | Motivational Speaker & Purpose/Success Specialist',
   description: 'Aim for the top because the bottom is already crowded. Create your own runway. International motivational speaker empowering students and leaders worldwide.',
+  icons: {
+    icon: '/logo/Tamara FG_1X1_Logo_CROWN Only.png',
+    apple: '/logo/Tamara FG_1X1_Logo_CROWN Only.png',
+  },
   keywords: [
     'motivational speaker',
     'keynote speaker',
@@ -53,6 +57,15 @@ export default function RootLayout({
         <AppProviders>
           {children}
         </AppProviders>
+        {/* Start of HubSpot Embed Code */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js-na2.hs-scripts.com/244604549.js"
+        />
+        {/* End of HubSpot Embed Code */}
       </body>
     </html>
   )

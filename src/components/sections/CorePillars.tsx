@@ -104,6 +104,19 @@ export default function CorePillars() {
                 </p>
               </motion.div>
             ))}
+
+            {/* CTA Button */}
+            <motion.div
+              variants={staggerItem}
+              className="pt-4"
+            >
+              <a
+                href="/services"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gold text-matte-black font-semibold rounded-full hover:bg-gold/90 transition-all duration-300 shadow-lg"
+              >
+                Explore What&apos;s Possible
+              </a>
+            </motion.div>
           </motion.div>
         </div>
       </div>

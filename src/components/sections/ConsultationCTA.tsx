@@ -43,7 +43,7 @@ export default function ConsultationCTA() {
 
           {/* Subtext */}
           <motion.p
-            className="text-matte-black/70 text-lg italic"
+            className="text-matte-black/70 text-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
