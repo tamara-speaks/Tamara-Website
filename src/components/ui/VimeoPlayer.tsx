@@ -20,12 +20,26 @@ export default function VimeoPlayer({ videoId, autoplay = false }: VimeoPlayerPr
     const player = new Player(iframeRef.current)
     playerRef.current = player
 
-    player.on('ended', () => {
-      setEnded(true)
+    let duration = 0
+
+    player.getDuration().then((dur) => {
+      duration = dur
+    })
+
+    // Show overlay 2 seconds before the video ends
+    player.on('timeupdate', (data) => {
+      if (duration > 0 && data.seconds >= duration - 1 && !ended) {
+        setEnded(true)
+      }
+    })
+
+    player.on('play', () => {
+      setEnded(false)
     })
 
     return () => {
-      player.off('ended')
+      player.off('timeupdate')
+      player.off('play')
     }
   }, [videoId])
 
