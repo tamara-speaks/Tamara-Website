@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Button from '@/components/ui/Button'
 import { fadeInUp, fadeInLeft, staggerContainer, staggerItem, scrollTrigger } from '@/lib/animations'
+import VimeoPlayer from '@/components/ui/VimeoPlayer'
 
 const steps = [
   {
@@ -319,12 +320,7 @@ export default function ContactPage() {
               viewport={scrollTrigger}
               className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-gold/20"
             >
-              <iframe
-                src="https://player.vimeo.com/video/1174757627?badge=0&autopause=0&player_id=0&app_id=58479"
-                className="absolute inset-0 w-full h-full"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowFullScreen
-              />
+              <VimeoPlayer videoId="1174757627" />
             </motion.div>
           </div>
         </section>

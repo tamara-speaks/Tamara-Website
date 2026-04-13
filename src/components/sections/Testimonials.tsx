@@ -3,12 +3,13 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
+import VimeoPlayer from '@/components/ui/VimeoPlayer'
 
 type Testimonial = {
   type: 'video' | 'text'
   name: string
   title: string
-  videoSrc?: string
+  videoId?: string
   quote?: string
 }
 
@@ -17,7 +18,7 @@ const testimonials: Testimonial[] = [
     type: 'video',
     name: 'J. Brown',
     title: 'Principal',
-    videoSrc: 'https://player.vimeo.com/video/1174569651?badge=0&autopause=0&player_id=0&app_id=58479',
+    videoId: '1174569651',
   },
   {
     type: 'text',
@@ -29,7 +30,7 @@ const testimonials: Testimonial[] = [
     type: 'video',
     name: 'K. Marie',
     title: 'Administrator',
-    videoSrc: 'https://player.vimeo.com/video/1174737491?badge=0&autopause=0&player_id=0&app_id=58479',
+    videoId: '1174737491',
   },
   {
     type: 'text',
@@ -41,7 +42,7 @@ const testimonials: Testimonial[] = [
     type: 'video',
     name: 'Mrs. Rich',
     title: 'THRIVE Summit',
-    videoSrc: 'https://player.vimeo.com/video/1174746224?badge=0&autopause=0&player_id=0&app_id=58479',
+    videoId: '1174746224',
   },
   {
     type: 'text',
@@ -98,13 +99,9 @@ export default function Testimonials() {
               /* Video Testimonial */
               <div className="bg-cream-white/5 border border-gold/20 rounded-2xl p-4 md:p-6">
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-4 border border-gold/10">
-                  <iframe
-                    key={currentTestimonial.videoSrc}
-                    src={currentTestimonial.videoSrc}
-                    className="absolute inset-0 w-full h-full"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                    allowFullScreen
-                  />
+                  {currentTestimonial.videoId && (
+                    <VimeoPlayer key={currentTestimonial.videoId} videoId={currentTestimonial.videoId} />
+                  )}
                 </div>
                 <div className="text-center">
                   <p className="text-gold font-semibold text-lg">

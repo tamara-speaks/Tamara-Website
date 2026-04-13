@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
+import VimeoPlayer from '@/components/ui/VimeoPlayer'
 
 const VIMEO_VIDEO_ID = '1174560062'
 const THUMBNAIL = '/landing/thumbnail.png'
@@ -79,14 +80,8 @@ export default function SpeakerReel() {
               </div>
             </div>
           ) : (
-            /* Video Embed - Vimeo */
-            <iframe
-              src={`https://player.vimeo.com/video/${VIMEO_VIDEO_ID}?autoplay=1&badge=0&autopause=0&player_id=0&app_id=58479`}
-              title="Tamara Figueroa-Guzman Reel3"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
+            /* Video Embed - Vimeo with Replay Overlay */
+            <VimeoPlayer videoId={VIMEO_VIDEO_ID} autoplay />
           )}
         </motion.div>
       </div>
