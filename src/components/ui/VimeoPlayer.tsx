@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Player from '@vimeo/player'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface VimeoPlayerProps {
@@ -10,69 +11,44 @@ interface VimeoPlayerProps {
 
 export default function VimeoPlayer({ videoId, autoplay = false }: VimeoPlayerProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null)
+  const playerRef = useRef<Player | null>(null)
   const [ended, setEnded] = useState(false)
 
-  const baseSrc = `https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=vimeo-${videoId}&app_id=58479${autoplay ? '&autoplay=1' : ''}`
-
   useEffect(() => {
-    const iframe = iframeRef.current
-    if (!iframe) return
+    if (!iframeRef.current) return
 
-    const handleMessage = (event: MessageEvent) => {
-      if (event.origin !== 'https://player.vimeo.com') return
+    const player = new Player(iframeRef.current)
+    playerRef.current = player
 
-      let data = event.data
-      if (typeof data === 'string') {
-        try { data = JSON.parse(data) } catch { return }
-      }
+    player.on('ended', () => {
+      setEnded(true)
+    })
 
-      // Match this specific player by player_id
-      if (data.player_id !== `vimeo-${videoId}`) return
-
-      if (data.event === 'ready') {
-        // Subscribe to ended event via postMessage
-        iframe.contentWindow?.postMessage(
-          JSON.stringify({ method: 'addEventListener', value: 'ended' }),
-          'https://player.vimeo.com'
-        )
-      }
-
-      if (data.event === 'ended') {
-        setEnded(true)
-      }
+    return () => {
+      player.off('ended')
     }
-
-    window.addEventListener('message', handleMessage)
-    return () => window.removeEventListener('message', handleMessage)
   }, [videoId])
 
   const handleReplay = () => {
-    const iframe = iframeRef.current
-    if (!iframe?.contentWindow) return
-
-    // Seek to beginning and play
-    iframe.contentWindow.postMessage(
-      JSON.stringify({ method: 'setCurrentTime', value: 0 }),
-      'https://player.vimeo.com'
-    )
-    iframe.contentWindow.postMessage(
-      JSON.stringify({ method: 'play' }),
-      'https://player.vimeo.com'
-    )
-    setEnded(false)
+    if (playerRef.current) {
+      playerRef.current.setCurrentTime(0).then(() => {
+        playerRef.current?.play()
+      })
+      setEnded(false)
+    }
   }
 
   return (
     <>
       <iframe
         ref={iframeRef}
-        src={baseSrc}
+        src={`https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479${autoplay ? '&autoplay=1' : ''}`}
         className="absolute inset-0 w-full h-full"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
         allowFullScreen
       />
 
-      {/* Replay Overlay — covers the entire iframe */}
+      {/* Replay Overlay */}
       <AnimatePresence>
         {ended && (
           <motion.div
@@ -89,7 +65,6 @@ export default function VimeoPlayer({ videoId, autoplay = false }: VimeoPlayerPr
               transition={{ delay: 0.2, duration: 0.3 }}
               className="flex flex-col items-center gap-5"
             >
-              {/* Replay icon */}
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gold flex items-center justify-center shadow-lg shadow-gold/30 hover:scale-110 transition-transform duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +82,6 @@ export default function VimeoPlayer({ videoId, autoplay = false }: VimeoPlayerPr
                 </svg>
               </div>
 
-              {/* Label */}
               <p className="text-cream-white font-semibold tracking-widest text-base md:text-lg uppercase">
                 Replay Video
               </p>
