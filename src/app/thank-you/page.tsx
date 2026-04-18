@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import VimeoPlayer from '@/components/ui/VimeoPlayer'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
 
 // Full-bleed background collage (6 cols x 3 rows = 18 tiles, tiled behind video).
@@ -106,13 +107,7 @@ export default function ThankYouPage() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <div className="relative w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl border-2 border-gold/40">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/2uLiXgM5XbU"
-                title="Thank You - Next Steps"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              <VimeoPlayer videoId="1184148573" />
             </div>
           </motion.div>
         </div>
