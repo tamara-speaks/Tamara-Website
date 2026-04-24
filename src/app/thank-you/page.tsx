@@ -5,33 +5,6 @@ import Image from 'next/image'
 import VimeoPlayer from '@/components/ui/VimeoPlayer'
 import { fadeInUp, scrollTrigger } from '@/lib/animations'
 
-// Full-bleed background collage (6 cols x 3 rows = 18 tiles, tiled behind video).
-// Ordered so leftmost column (positions 0,6,12) and rightmost column (5,11,17)
-// land on user-specified key images.
-const collageImages = [
-  // Row 1 (6 tiles: left→right)
-  { src: '/thankyoupage/Edit-6502.jpg', alt: 'Tamara on stage' },                         // 0 LEFT top
-  { src: '/thankyoupage/Edit-6957.jpg', alt: 'Tamara speaking - red dress' },             // 1
-  { src: '/thankyoupage/Graduation Caps in the Air.jpg', alt: 'Graduation caps' },         // 2
-  { src: '/thankyoupage/2-Middle-Graduation Cheer.jpg', alt: 'Graduation cheer' },         // 3
-  { src: '/thankyoupage/Edit-6907.jpg', alt: 'Tamara - Punta Cana' },                      // 4
-  { src: '/thankyoupage/Edit-6931.jpg', alt: 'Tamara speaking - red dress' },              // 5 RIGHT top
-  // Row 2
-  { src: '/thankyoupage/645A5669.jpg', alt: 'Tamara - orange blazer' },                    // 6 LEFT mid
-  { src: '/thankyoupage/645A5697.jpg', alt: 'Tamara speaking' },                           // 7
-  { src: '/thankyoupage/leo_fontes-graduation-4502796_1920.jpg', alt: 'Graduate' },        // 8
-  { src: '/thankyoupage/sofia_shultz_photography-senior-6292000_1920.jpg', alt: 'Senior' },// 9
-  { src: '/thankyoupage/645A5697.jpg', alt: 'Tamara speaking' },                           // 10
-  { src: '/thankyoupage/StockCake-Joyful_Children_Clapping-447972-medium.jpg', alt: 'Children clapping' }, // 11 RIGHT mid
-  // Row 3
-  { src: '/thankyoupage/Screenshot 2026-04-13 102958.png', alt: 'Graduates celebrating' }, // 12 LEFT bottom
-  { src: '/thankyoupage/Graduation Caps in the Air.jpg', alt: 'Graduation caps' },          // 13
-  { src: '/thankyoupage/Edit-6907.jpg', alt: 'Tamara - Punta Cana' },                       // 14
-  { src: '/thankyoupage/2-Middle-Graduation Cheer.jpg', alt: 'Graduation cheer' },          // 15
-  { src: '/thankyoupage/Edit-6957.jpg', alt: 'Tamara speaking - red dress' },               // 16
-  { src: '/thankyoupage/645A9311.jpg', alt: 'Tamara - white dress' },                       // 17 RIGHT bottom
-]
-
 const steps = [
   {
     number: 1,
@@ -62,51 +35,63 @@ const steps = [
 export default function ThankYouPage() {
   return (
     <main className="min-h-screen bg-cream-white">
-      {/* Hero Section - Thank You Header */}
-      <section className="relative bg-matte-black pt-16 pb-0 overflow-hidden">
+      {/* Hero Section - Thank You Header with full-bleed collage background */}
+      <section className="relative bg-matte-black overflow-hidden">
         {/* Gold accent line at top */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gold-gradient" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gold-gradient z-20" />
 
-        <motion.div
-          className="text-center px-4 mb-12"
-          variants={fadeInUp}
-          initial="hidden"
-          animate="visible"
-        >
-          <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gold mb-4">
-            Thank You For Booking a Call!
-          </h1>
-          <p className="text-cream-white text-xl md:text-2xl font-medium max-w-2xl mx-auto">
-            Please Watch This Video for Next Steps
-          </p>
-          <p className="text-gold font-bold text-base md:text-lg tracking-widest uppercase mt-1">
-            (IMPORTANT)
-          </p>
-        </motion.div>
+        {/* Full-bleed background image (pre-rendered collage + dark strip) */}
+        <div className="relative w-full aspect-[1920/1080]">
+          <Image
+            src="/thankyoupage/Thank-You-Background.jpg"
+            alt="Graduation celebrations collage"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
 
-        {/* Video with Full-Bleed Photo Collage Background */}
-        <div className="relative overflow-hidden">
-          {/* Collage Background - tiled mosaic (full bleed) */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-0">
-            {collageImages.map((img, i) => (
-              <div key={i} className="relative aspect-square overflow-hidden">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 33vw, 16vw" />
-              </div>
-            ))}
-          </div>
-
-          {/* Color overlay on collage */}
-          <div className="absolute inset-0 bg-gold/30 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-matte-black/40" />
-
-          {/* Video floating on top of collage - leaves a visible border of collage on left/right */}
+          {/* Title block — sits on the dark strip at top of background */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center px-8 sm:px-16 md:px-24 lg:px-40 py-8 md:py-12"
+            className="absolute top-0 left-0 right-0 z-10 text-center px-4 pt-[3%]"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+          >
+            <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-gold">
+              Thank You For Booking a Call!
+            </h1>
+          </motion.div>
+
+          {/* Subtitle block — line space above, positioned just above video */}
+          <motion.div
+            className="absolute left-0 right-0 z-10 text-center px-4"
+            style={{ top: '14%' }}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 0.15 }}
+          >
+            <p className="text-cream-white text-sm sm:text-base md:text-xl lg:text-2xl font-medium mt-4 md:mt-6">
+              Please Watch This Video for Next Steps
+            </p>
+            <p className="text-gold font-bold text-xs sm:text-sm md:text-base lg:text-lg tracking-widest uppercase mt-1">
+              (IMPORTANT)
+            </p>
+          </motion.div>
+
+          {/* Video — positioned at inner edge of 1st & 6th columns (1/6 padding each side) */}
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ paddingLeft: '16.667%', paddingRight: '16.667%', paddingTop: '22%', paddingBottom: '5%' }}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="relative w-full max-w-4xl aspect-video rounded-xl overflow-hidden shadow-2xl border-2 border-gold/40">
+            <div
+              className="relative w-full aspect-video overflow-hidden shadow-2xl"
+              style={{ outline: '14px solid rgba(140, 114, 30, 0.8)' }}
+            >
               <VimeoPlayer videoId="1184148573" />
             </div>
           </motion.div>
@@ -177,16 +162,26 @@ export default function ThankYouPage() {
           whileInView="visible"
           viewport={scrollTrigger}
         >
-          <p className="text-matte-black text-xl md:text-2xl font-medium mb-3">
+          <p className="text-matte-black text-2xl md:text-3xl font-medium mb-3">
             To view Tamara&apos;s Speaking website visit:
           </p>
           <a
             href="https://www.tamarafigueroa.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block text-matte-black font-playfair text-2xl md:text-3xl font-bold hover:text-cream-white transition-colors duration-300 underline underline-offset-4 decoration-2"
+            className="group inline-flex items-center gap-3 text-matte-black hover:text-cream-white font-playfair text-xl md:text-2xl lg:text-3xl font-bold bg-transparent hover:bg-matte-black border-[3px] border-matte-black rounded-full px-7 md:px-10 py-3.5 md:py-4 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-matte-black/30"
           >
-            www.TamaraFigueroa.com
+            <span>www.TamaraFigueroa.com</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2.5}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </a>
         </motion.div>
       </section>

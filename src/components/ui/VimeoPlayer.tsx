@@ -56,7 +56,7 @@ export default function VimeoPlayer({ videoId, autoplay = false }: VimeoPlayerPr
     <>
       <iframe
         ref={iframeRef}
-        src={`https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479${autoplay ? '&autoplay=1' : ''}`}
+        src={`https://player.vimeo.com/video/${videoId}?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&dnt=1${autoplay ? '&autoplay=1' : ''}`}
         className="absolute inset-0 w-full h-full"
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
         allowFullScreen
