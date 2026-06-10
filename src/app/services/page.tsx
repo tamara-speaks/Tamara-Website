@@ -20,13 +20,13 @@ type Service = {
 const services: Service[] = [
   {
     title: 'Keynote Speaking',
-    tagline: 'INSPIRING • TRANSFORMATIONAL • IMPACTFUL',
+    tagline: 'INSPIRING • EMPOWERING • TRANSFORMATIONAL',
     description: 'Tamara energizes audiences with powerful, story-driven keynotes that help students and leaders recognize their worth, ignite purpose, and step confidently onto their own runway for success—driving stronger engagement, resilience, and lasting outcomes.',
     image: '/services/Edit-6566.jpg',
   },
   {
     title: 'Workshop Facilitation',
-    tagline: 'INTERACTIVE • PRACTICAL • EMPOWERING',
+    tagline: 'INTERACTIVE • HANDS-ON • EMPOWERING',
     description: 'Move beyond inspiration into measurable change through Tamara\'s interactive workshops, where students and staff gain practical tools to build confidence, regulate stress, and take purposeful action that leads to real growth.',
     image: '/services/DSC09740.jpg',
     objectPosition: '85% center',
@@ -39,7 +39,7 @@ const services: Service[] = [
   },
   {
     title: 'Professional Development',
-    tagline: 'RESTORATIVE • INSIGHTFUL • RESULTS-DRIVEN',
+    tagline: 'RESTORATIVE • PRACTICAL • RESULTS-DRIVEN',
     description: 'Drawing from her experience as an educator, Tamara delivers powerful development experiences that strengthen staff mindset, reduce burnout, and help leaders cultivate confident, purpose-driven cultures where both students and educators thrive.',
     image: '/services/DSC09702.jpg',
     objectPosition: '70% center',
@@ -47,7 +47,7 @@ const services: Service[] = [
   },
   {
     title: 'Moderator / Host',
-    tagline: 'POLISHED • ENGAGING • PROFESSIONAL',
+    tagline: 'POLISHED • ENGAGING • SEAMLESS',
     description: 'Tamara creates seamless, engaging event experiences by guiding conversations with warmth and expertise—keeping audiences energized, discussions meaningful, and programming flowing with confidence and excellence.',
     image: '/services/DSC09842-Edit_FINAL.jpg',
     objectPosition: 'center 20%',
@@ -55,7 +55,7 @@ const services: Service[] = [
   },
   {
     title: 'Virtual Presentations',
-    tagline: 'ENGAGING • INTERACTIVE • ACCESSIBLE',
+    tagline: 'ENGAGING • INTERACTIVE • HIGH-IMPACT',
     description: 'Bring the Create Your Own Runway experience anywhere through high-impact virtual presentations that keep audiences fully engaged while delivering actionable tools that translate into real-world growth, connection, and performance.',
     image: '/services/Virtual Presentations_20260222_160116.jpg',
   },
