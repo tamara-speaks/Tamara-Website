@@ -17,7 +17,7 @@ const pillars = [
   },
   {
     title: 'Purpose & Persistence',
-    description: 'Equipping the entire school community with clarity and direction that fuels motivation, persistence, achievement, and long-term success.',
+    description: 'Equipping school communities with clarity and direction that fuels motivation, persistence, achievement, and long-term success.',
     tagline: 'Move Forward With Direction.',
   },
 ]
