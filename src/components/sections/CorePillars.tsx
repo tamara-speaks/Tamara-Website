@@ -53,7 +53,7 @@ export default function CorePillars() {
           viewport={{ once: true }}
         >
           <p className="text-matte-black/80 text-lg leading-relaxed">
-            Tamara&apos;s Create Your Own Runway experiences focus on the three pillars that drive engagement, resilience, leadership, and long-term success.
+            Tamara&apos;s Create Your Own Runway experiences focus on the three pillars that strengthen engagement, school culture, leadership, and student success.
           </p>
         </motion.div>
 
