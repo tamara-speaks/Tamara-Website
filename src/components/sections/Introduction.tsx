@@ -38,7 +38,7 @@ export default function Introduction() {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            Purpose & Power Strategist
+            Student Engagement & Empowerment Specialist
           </motion.h2>
 
           {/* Subtitle */}
