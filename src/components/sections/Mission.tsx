@@ -67,15 +67,15 @@ export default function Mission() {
             <ul className="space-y-4 text-left max-w-md mx-auto">
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                Recognize Their <span className="font-bold">Worth</span>
+                Ignite <span className="font-bold">Motivation & Engagement</span>
               </li>
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                Build Unshakable <span className="font-bold">Confidence</span>
+                Build <span className="font-bold">Confidence & School Culture</span>
               </li>
               <li className="flex items-center gap-3 text-matte-black text-lg md:text-xl">
                 <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                Create Their Own Runway for <span className="font-bold">Success</span>
+                Strengthen <span className="font-bold">Persistence & Readiness</span>
               </li>
             </ul>
           </motion.div>
