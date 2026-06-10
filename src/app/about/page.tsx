@@ -347,7 +347,7 @@ export default function AboutPage() {
                   Creating Runways for Others<br />to Rise
                 </motion.h2>
                 <motion.p variants={staggerItem} className="text-cream-white/80 text-lg leading-relaxed">
-                  Today, Tamara brings her life story, educational expertise, and transformational framework to stages across the country. As a speaker, advisor, moderator, and mentor, she partners with schools and organizations to strengthen student outcomes, increase retention, and support educator well-being — all through the power of confidence, identity, and purpose.
+                  Today, Tamara brings her life story, educational expertise, and transformational framework to stages across the country. As a speaker, advisor, moderator, and mentor, she partners with schools and organizations to strengthen engagement, ignite persistence, elevate school culture, and support educator well-being through the power of confidence, identity, and purpose.
                 </motion.p>
                 <motion.p variants={staggerItem} className="text-cream-white/80 text-lg leading-relaxed">
                   Her mission is clear:
@@ -416,7 +416,7 @@ export default function AboutPage() {
                 variants={staggerItem}
                 className="text-matte-black/80 text-lg mb-2 max-w-2xl mx-auto"
               >
-                Let&apos;s partner to create an experience that empowers your community and drives lasting impact.
+                Let&apos;s partner to create an experience that strengthens engagement, builds confidence, and inspires students and educators to move forward with purpose.
               </motion.p>
               {/* Bold text with more spacing */}
               <motion.p
