@@ -64,8 +64,8 @@ export default function Introduction() {
               From surviving Brooklyn&apos;s toughest environments to stepping onto worldwide stages,
               Tamara Figueroa-Guzman now partners with schools and organizations to create their own
               runways for success. Through her powerful speaking experiences, she equips students and
-              educators with the confidence, self-worth, and purpose-driven mindset proven to strengthen
-              retention, elevate performance, and reduce burnout.
+              educators with the confidence, self-worth, and purpose-driven mindset that strengthens
+              engagement, elevates performance, and reduces burnout.
             </p>
           </motion.div>
 
