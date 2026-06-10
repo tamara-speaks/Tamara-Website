@@ -6,18 +6,18 @@ import { fadeInLeft, staggerContainer, staggerItem, scrollTrigger } from '@/lib/
 
 const pillars = [
   {
-    title: 'Identity & Self-Worth',
-    description: 'Helping individuals understand their value, strengthen resilience, and overcome internal barriers.',
+    title: 'Identity & Belonging',
+    description: 'Helping individuals understand their value, strengthen resilience, and build a foundation for engagement and success.',
     tagline: 'Know Who You Are.',
   },
   {
-    title: 'Confidence Development',
-    description: 'Building the courage and mindset; students and leaders need to perform, lead, and rise.',
+    title: 'Confidence & Leadership',
+    description: 'Building the courage, ownership, and mindset students and leaders need to perform, lead, and thrive.',
     tagline: 'Believe In What\'s Possible.',
   },
   {
-    title: 'Purpose-Driven Success',
-    description: 'Equipping audiences with clarity, direction, and motivation to achieve meaningful outcomes.',
+    title: 'Purpose & Persistence',
+    description: 'Equipping the entire school community with clarity and direction that fuels motivation, persistence, achievement, and long-term success.',
     tagline: 'Move Forward With Direction.',
   },
 ]
