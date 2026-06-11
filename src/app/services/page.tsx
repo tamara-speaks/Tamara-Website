@@ -21,7 +21,7 @@ const services: Service[] = [
   {
     title: 'Keynote Speaking',
     tagline: 'INSPIRING • EMPOWERING • TRANSFORMATIONAL',
-    description: 'Tamara energizes audiences with powerful, story-driven keynotes experiences that don’t just inspire; they shift the way students and educators see themselves. Through unforgettable storytelling and real-world insight, she helps communities unlock confidence, reconnect to purpose, and step into higher levels of engagement, resilience, and success. Every keynote feels like a turning point your audience didn’t know they needed; one they\'ll  never forget.',
+    description: 'Tamara energizes audiences with powerful, story-driven keynotes experiences that shift the way students and leaders see themselves. Through unforgettable storytelling and real-world insight, she helps communities unlock confidence, reconnect to purpose, and step into higher levels of engagement, resilience, and success. Every keynote feels like a turning point your audience didn’t know they needed; one they\'ll  never forget.',
     image: '/services/Edit-6566.jpg',
   },
   {
