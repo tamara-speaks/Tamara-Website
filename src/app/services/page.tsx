@@ -34,7 +34,7 @@ const services: Service[] = [
   {
     title: 'Conferences',
     tagline: 'ENGAGING • DYNAMIC • MEMORABLE',
-    description: 'Tamara elevates conference experience with dynamic sessions that captivate audiences, unify your event theme, and equip attendees with mindset strategies they can immediately apply to grow, lead, and perform at their highest level.',
+    description: 'Tamara transforms conference stages into high-impact moments that captivate audiences, elevate energy, and bring event themes to life with clarity and power. Attendees walk away equipped with mindset strategies to grow, lead, and perform at their highest level.',
     image: '/services/645A5661.jpg',
   },
   {
