@@ -98,7 +98,7 @@ export default function ServicesPage() {
                 variants={staggerItem}
                 className="text-cream-white/80 text-lg md:text-xl leading-relaxed"
               >
-                Transformational experiences that strengthen engagement, build confidence, cultivate purpose, and inspire lasting student and educator success.
+                Transformational experiences that strengthen engagement, build confidence, cultivate purpose, and inspire lasting student and leaders success.
               </motion.p>
             </motion.div>
           </div>
