@@ -27,7 +27,7 @@ const services: Service[] = [
   {
     title: 'Workshop Facilitation',
     tagline: 'INTERACTIVE • HANDS-ON • EMPOWERING',
-    description: 'Move beyond inspiration into measurable change through Tamara\'s interactive workshops, where students and staff gain practical tools to build confidence, regulate stress, and take purposeful action that leads to real growth.',
+    description: 'Move beyond inspiration into actionable change through Tamara\'s interactive workshops. Here, participants gain practical tools to strengthen confidence, navigate challenges, and take purposeful ownership of their growth in real time.',
     image: '/services/DSC09740.jpg',
     objectPosition: '85% center',
   },
