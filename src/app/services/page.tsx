@@ -40,7 +40,7 @@ const services: Service[] = [
   {
     title: 'Professional Development',
     tagline: 'RESTORATIVE • PRACTICAL • RESULTS-DRIVEN',
-    description: 'Drawing from her experience as an educator, Tamara delivers powerful development experiences that strengthen staff mindset, reduce burnout, and help leaders cultivate confident, purpose-driven cultures where both students and educators thrive.',
+    description: 'Tamara redefines professional development as powerful experiences that restore energy, rebuild mindset, and reduce burnout. She empowers leaders to cultivate confident, purpose-driven cultures where both students and educators thrive.',
     image: '/services/DSC09702.jpg',
     objectPosition: '70% center',
     scale: 1.4,
