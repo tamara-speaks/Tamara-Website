@@ -48,7 +48,7 @@ const services: Service[] = [
   {
     title: 'Moderator / Host',
     tagline: 'POLISHED • ENGAGING • SEAMLESS',
-    description: 'Tamara transforms event stages by guiding high-impact conversations with exceptional warmth, presence, and expertise. She drives the pace, ensuring audiences are energized, discussions ignite insight, and programming flows effortlessly from beginning to end.',
+    description: 'Tamara transforms event stages by guiding high-impact conversations with warmth, presence, and expertise. She drives the pace, ensuring audiences are energized, discussions ignite insight, and programming flows effortlessly from start to finish.',
     image: '/services/DSC09842-Edit_FINAL.jpg',
     objectPosition: 'center 20%',
     objectFit: 'contain',
