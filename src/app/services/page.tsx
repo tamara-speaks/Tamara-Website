@@ -56,7 +56,7 @@ const services: Service[] = [
   {
     title: 'Virtual Presentations',
     tagline: 'ENGAGING • INTERACTIVE • HIGH-IMPACT',
-    description: 'Even through a screen, Tamara creates a powerful sense of presence and connection that feels anything but virtual. Watch her captivate the audience with dynamic tools and interactive strategies that students and leaders can immediately apply, ensuring impact far beyond the screen.',
+    description: 'Even through a screen, Tamara creates a powerful sense of presence and connection that feels anything but virtual. Watch her captivate the audience with strategies and tools that students and leaders can immediately apply, ensuring impact far beyond the screen.',
     image: '/services/Virtual Presentations_20260222_160116.jpg',
   },
 ]
